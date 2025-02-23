@@ -1,4 +1,4 @@
-import { FaEnvelope, FaFolder, FaUniversity } from "react-icons/fa";
+import { FaCode, FaEnvelope, FaFolder, FaUniversity } from "react-icons/fa";
 import { MdOutlinePhone } from "react-icons/md";
 import {
   VscAccount,
@@ -8,6 +8,7 @@ import {
   VscSettingsGear,
 } from "react-icons/vsc";
 import Collapsable from "./Collapsable";
+import { GiBowman, GiConsoleController } from "react-icons/gi";
 
 const Sidebar = () => {
   return (
@@ -38,24 +39,40 @@ const Sidebar = () => {
             <Collapsable
               id="bio"
               title="bio"
-              ml="ml-2"
+              ml="ml-4"
+              defaultColor="code-string"
               indicator={<FaFolder />}
             />
             <Collapsable
               id="interests"
               title="interests"
-              ml="ml-2"
+              ml="ml-4"
               indicator={<FaFolder />}
-            />
+              defaultColor="code-keyword"
+            >
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-code-comment transition-colors duration-100 hover:text-white">
+                <FaCode className="inline-block h-5 w-5 flex-shrink-0" />
+                <span className="ml-2">coding</span>
+              </div>
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-code-comment transition-colors duration-100 hover:text-white">
+                <GiConsoleController className="inline-block h-5 w-5 flex-shrink-0" />
+                <span className="ml-2">gaming</span>
+              </div>
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-code-comment transition-colors duration-100 hover:text-white">
+                <GiBowman className="inline-block h-5 w-5 flex-shrink-0" />
+                <span className="ml-2">archery</span>
+              </div>
+            </Collapsable>
             <Collapsable
               id="education"
               title="education"
-              ml="ml-2"
+              ml="ml-4"
               indicator={<FaFolder />}
+              defaultColor="code-number"
             >
               <div className="mb-2 ml-2 flex flex-row items-center px-2">
-                <FaUniversity className="h-4 w-4 text-code-variable" />
-                <span className="ml-2 text-code-variable">my-university</span>
+                <FaUniversity className="h-4 w-4" />
+                <span className="ml-2 text-sm">University of Lethbridge</span>
               </div>
             </Collapsable>
           </Collapsable>

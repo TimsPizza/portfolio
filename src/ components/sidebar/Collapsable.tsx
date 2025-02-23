@@ -8,7 +8,12 @@ interface ICollapsableProps {
   bordered?: boolean;
   default?: "collapsed" | "expanded";
   ml?: string;
+  mr?: string;
+  mt?: string;
+  mb?: string;
   indicator?: React.ReactNode;
+  activeColor?: string;
+  defaultColor?: string;
 }
 
 const Collapsable: React.FC<ICollapsableProps> = ({
@@ -18,7 +23,11 @@ const Collapsable: React.FC<ICollapsableProps> = ({
   bordered = false,
   default: initialState = "collapsed",
   ml = "",
+  mr = "",
+  mt = "",
+  mb = "",
   indicator,
+  defaultColor = "text-code-comment",
 }) => {
   const [isCollapsed, setIsCollapsed] = React.useState(
     initialState === "collapsed",
@@ -27,13 +36,13 @@ const Collapsable: React.FC<ICollapsableProps> = ({
   return (
     <div
       id={id ?? `${title}-collapsable`}
-      className={`flex h-full w-full flex-col ${bordered ? "bordered" : ""} ${ml}`}
+      className={`flex h-full w-full flex-col ${bordered ? "bordered" : ""} ${ml} ${mr} ${mt} ${mb}`}
     >
       <div
         id="indicator"
         className={`${
           bordered ? "bordered" : ""
-        } relative flex w-full cursor-pointer items-center p-2 transition-colors duration-200 hover:text-white ${isCollapsed ? "" : "text-white"}`}
+        } relative flex w-full cursor-pointer items-center p-1 text-${defaultColor} text-opacity-80 transition-colors duration-200 hover:text-opacity-100 ${isCollapsed ? "text-opacity-80" : "!text-opacity-100"}`}
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
         {indicator ? (
@@ -46,7 +55,11 @@ const Collapsable: React.FC<ICollapsableProps> = ({
           />
         )}
 
-        <span className="ml-2">{title}</span>
+        <span
+          className={`ml-2 ${defaultColor === "text-code-comment" ? (isCollapsed ? "" : "text-white") : ""}`}
+        >
+          {title}
+        </span>
       </div>
       {children && (
         <div

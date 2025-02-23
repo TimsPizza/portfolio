@@ -1,6 +1,4 @@
-import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { LiaGithub } from "react-icons/lia";
 
 const Footer = () => {
   return (

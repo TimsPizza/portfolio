@@ -22,18 +22,19 @@ module.exports = {
         primary: "A6A6A6",
         secondary: "#3D3D3D",
         background: {
-          dark: '#011727',
+          dark: "#011727",
         },
         text: {
           light: "#E5E9EF",
           gray: "#405870",
         },
-        'label-active': "#FDA55E",
-        code:{
+        "label-active": "#FDA55E",
+        code: {
           keyword: "#4C5ACC",
           variable: "#42D9AD",
           string: "#FDA55E",
           comment: "#405870",
+          number: "#FF6B6B",
         },
         success: "#47D764",
         error: "#FF355B",
