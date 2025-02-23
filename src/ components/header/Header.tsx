@@ -6,20 +6,20 @@ const Header = () => {
       id="header-container"
       className="bordered flex h-full w-full flex-row items-center"
     >
-      <div className="bordered flex h-full w-1/6 items-center justify-start">
-        <span className="text-code-variable">@peisen-jiang</span>
+      <div className="bordered flex h-full w-1/5 items-center justify-start">
+        <span className="ml-2 text-code-variable">@peisen-jiang</span>
       </div>
-      <div className="text-text-gray relative flex h-full flex-1">
-        <span className="text-text-light hover:text-text-light before:active-underline bordered relative flex min-w-28 cursor-pointer items-center justify-center p-3 transition-colors duration-200">
+      <div className="relative flex h-full flex-1 text-text-gray">
+        <span className="before:active-underline bordered relative flex min-w-28 cursor-pointer items-center justify-center p-3 text-text-light transition-colors duration-200 hover:text-text-light">
           _hello
         </span>
-        <span className="hover:text-text-light bordered relative flex min-w-28 cursor-pointer items-center justify-center p-4 transition-colors duration-200">
+        <span className="bordered relative flex min-w-28 cursor-pointer items-center justify-center p-4 transition-colors duration-200 hover:text-text-light">
           _about_me
         </span>
-        <span className="hover:text-text-light bordered relative flex min-w-28 cursor-pointer items-center justify-center p-4 transition-colors duration-200">
+        <span className="bordered relative flex min-w-28 cursor-pointer items-center justify-center p-4 transition-colors duration-200 hover:text-text-light">
           _projects
         </span>
-        <span className="hover:text-text-light bordered relative flex min-w-28 cursor-pointer items-center justify-center p-4 transition-colors duration-200 ml-auto text-code-variable">
+        <span className="bordered relative ml-auto flex min-w-28 cursor-pointer items-center justify-center p-4 text-code-variable transition-colors duration-200 hover:text-text-light">
           _contact
         </span>
       </div>

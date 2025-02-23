@@ -15,7 +15,7 @@ const Layout = () => {
         <Header />
       </div>
       <div id="middle-wrapper" className="flex w-full flex-1 flex-row">
-        <div id="sidebar-wrapper" className="w-1/6 bordered">
+        <div id="sidebar-wrapper" className="w-1/5 bordered">
           <Sidebar />
         </div>
         <div id="main-content-wrapper" className="w-full flex-1"></div>
