@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+
+  .active-underline {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    height: 2px;
+    background-color: #FDA55E;
+  }
+
+  .bordered {
+    position: relative;
+  }
+
+  .bordered::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(64, 88, 112, 0.39);
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+}
