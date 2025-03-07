@@ -22,7 +22,10 @@ const Sidebar = () => {
         <VscExtensions className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
         <div className="mt-auto flex flex-col gap-4">
           <VscAccount className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
-          <VscSettingsGear className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
+          <VscSettingsGear
+            className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable"
+            title="theme"
+          />
         </div>
       </div>
       <div

@@ -7,7 +7,7 @@ const Header = () => {
       className="bordered flex h-full w-full flex-row items-center"
     >
       <div className="bordered flex h-full w-1/5 items-center justify-start">
-        <span className="ml-2 text-code-variable">@peisen-jiang</span>
+        <span className="ml-2 text-code-variable">peisen-jiang</span>
       </div>
       <div className="relative flex h-full flex-1 text-text-gray">
         <span className="before:active-underline bordered relative flex min-w-28 cursor-pointer items-center justify-center p-3 text-text-light transition-colors duration-200 hover:text-text-light">
