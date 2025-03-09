@@ -9,6 +9,7 @@ import {
 } from "react-icons/vsc";
 import Collapsable from "./Collapsable";
 import { GiBowman, GiConsoleController } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -17,15 +18,47 @@ const Sidebar = () => {
         id="sidebar-icons"
         className="bordered flex h-full w-1/4 flex-col items-center gap-4 py-4"
       >
-        <VscFiles className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
-        <VscGitMerge className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
-        <VscExtensions className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
+        <NavLink
+          to="/landing"
+          className={({ isActive }) =>
+            `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+          }
+        >
+          <VscFiles className="h-7 w-7 cursor-pointer transition-colors duration-200" />
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+          }
+        >
+          <VscGitMerge className="h-7 w-7 cursor-pointer transition-colors duration-200" />
+        </NavLink>
+        <NavLink
+          to="/projects"
+          className={({ isActive }) =>
+            `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+          }
+        >
+          <VscExtensions className="h-7 w-7 cursor-pointer transition-colors duration-200" />
+        </NavLink>
         <div className="mt-auto flex flex-col gap-4">
-          <VscAccount className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable" />
-          <VscSettingsGear
-            className="h-7 w-7 cursor-pointer text-code-comment transition-colors duration-200 hover:text-code-variable"
-            title="theme"
-          />
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+            }
+          >
+            <VscAccount className="h-7 w-7 cursor-pointer transition-colors duration-200" />
+          </NavLink>{" "}
+          <NavLink
+            to="/themes"
+            className={({ isActive }) =>
+              `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+            }
+          >
+            <VscSettingsGear className="h-7 w-7 cursor-pointer transition-colors duration-200" />
+          </NavLink>
         </div>
       </div>
       <div
