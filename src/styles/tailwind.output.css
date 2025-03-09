@@ -1067,6 +1067,18 @@ video {
   line-height: 1.75rem;
 }
 
+.leading-10 {
+  line-height: 2.5rem;
+}
+
+.leading-5 {
+  line-height: 1.25rem;
+}
+
+.leading-8 {
+  line-height: 2rem;
+}
+
 .text-code-comment {
   --tw-text-opacity: 1;
   color: rgb(64 88 112 / var(--tw-text-opacity));

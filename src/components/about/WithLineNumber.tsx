@@ -1,7 +1,13 @@
 import React from "react";
 
-const WithLineNumber: React.FC<{ children: React.ReactNode }> = ({
+interface WithLineNumberProps {
+  children: React.ReactNode;
+  leading?: string;
+}
+
+const WithLineNumber: React.FC<WithLineNumberProps> = ({
   children,
+  leading: lineHeight = "leading-6", // default line height
 }) => {
   const section = React.Children.toArray(children).find(
     (child) => React.isValidElement(child) && child.type === "section",
@@ -18,7 +24,7 @@ const WithLineNumber: React.FC<{ children: React.ReactNode }> = ({
       <div className="flex">
         <div className="min-w-[30px] select-none border-r border-gray-600 pr-4 text-right text-code-comment">
           {paragraphs.map((_, i) => (
-            <div key={i} className="leading-6">
+            <div key={i} className={lineHeight}>
               {i + 1}
             </div>
           ))}
