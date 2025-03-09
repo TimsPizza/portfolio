@@ -1,9 +1,9 @@
 import { createHashRouter, RouteObject } from "react-router-dom";
 import Layout from "./_layout";
-import Landing from "../ components/landing/Landing";
-import Projects from "../ components/projects/Projects";
-import AboutMe from "../ components/about/AboutMe";
-import Contact from "../ components/contact/Contact";
+import Landing from "../components/landing/Landing";
+import Projects from "../components/projects/Projects";
+import AboutMe from "../components/about/AboutMe";
+import Contact from "../components/contact/Contact";
 const routes: RouteObject[] = [
   {
     path: "/",
