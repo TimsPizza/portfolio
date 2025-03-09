@@ -577,6 +577,10 @@ video {
   position: relative;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -632,6 +636,10 @@ video {
   margin-top: 0.75rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -674,6 +682,10 @@ video {
 
 .h-12 {
   height: 3rem;
+}
+
+.min-h-0 {
+  min-height: 0px;
 }
 
 .w-1\/4 {

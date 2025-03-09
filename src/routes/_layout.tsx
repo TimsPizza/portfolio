@@ -18,7 +18,9 @@ const Layout = () => {
           <Sidebar />
         </div>
         <div id="main-content-wrapper" className="w-full flex-1">
-          <Outlet />
+          <div className="h-full min-h-0 w-full bg-[#071321]">
+            <Outlet />
+          </div>
         </div>
       </div>
       <div id="bottom-wrapper" className="bordered h-[5%] w-full">

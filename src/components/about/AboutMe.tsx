@@ -25,24 +25,24 @@ import WithLineNumber from "./WithLineNumber";
 
 const AboutMe = () => {
   return (
-    <div className="flex w-full flex-row bg-[#071321] px-4 h-full">
+    <div className="flex h-full w-full flex-row px-4">
       <div id="about-left" className="w-3/5">
         <WithLineNumber>
           <section className="text-code-comment">
             <p className="font-bold">{`/* About Peisen Jiang`}</p>
-            <p className="text-success">{`[Who am I]`}</p>
+            <p className="mt-1 text-success">{`[Who am I]`}</p>
             <p>{`• An aspiring and ambitious web developer & hardware enthusiast.`}</p>
-            <p className="text-info">{`[Where I from]`}</p>
+            <p className="mt-1 text-info">{`[Where I from]`}</p>
             <p
               title="China :)"
               className="select-none transition-colors duration-200 hover:text-gray-400"
             >
               {`• A mysterious oriental country :)`}
             </p>
-            <p className="text-code-number">{`[What do I do]`}</p>
+            <p className="mt-1 text-code-number">{`[What do I do]`}</p>
             <p>{`• I make interactive & responsive web applications along with backend solutions`}</p>
-            <p className="text-warning">{`[My hobbies]`}</p>
-            <p>{`• [Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
+            <p className="mt-1 text-warning">{`[My hobbies]`}</p>
+            <p>{`•[Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
           </section>
         </WithLineNumber>
       </div>
