@@ -25,13 +25,20 @@ import WithLineNumber from "./WithLineNumber";
 
 const AboutMe = () => {
   return (
-    <div className="flex w-full flex-row px-4">
-      <div id="about-left" className="w-1/2">
+    <div className="flex w-full flex-row bg-[#071321] px-4 h-full">
+      <div id="about-left" className="w-3/5">
         <WithLineNumber>
           <section className="text-code-comment">
             <p className="font-bold">{`/* About Peisen Jiang`}</p>
-            <p className="text-info">{`[Who am I]`}</p>
+            <p className="text-success">{`[Who am I]`}</p>
             <p>{`• An aspiring and ambitious web developer & hardware enthusiast.`}</p>
+            <p className="text-info">{`[Where I from]`}</p>
+            <p
+              title="China :)"
+              className="select-none transition-colors duration-200 hover:text-gray-400"
+            >
+              {`• A mysterious oriental country :)`}
+            </p>
             <p className="text-code-number">{`[What do I do]`}</p>
             <p>{`• I make interactive & responsive web applications along with backend solutions`}</p>
             <p className="text-warning">{`[My hobbies]`}</p>
@@ -39,10 +46,10 @@ const AboutMe = () => {
           </section>
         </WithLineNumber>
       </div>
-      <div id="about-right" className="flex w-1/2 flex-col">
-        <span>{`// Techs that I've been using or am learning`}</span>
-        <span className="mt-3">{`Programming Languages`}</span>
-        <Card>
+      <div id="about-right" className="flex w-2/5 flex-col">
+        <span className="mt-3 text-code-comment">{`// Techs that I've been using or am learning`}</span>
+        <span className="mt-3 text-code-comment">{`Programming Languages`}</span>
+        <Card className="bg-[#111a27]">
           <TextWithCheckbox
             text="C/C++"
             checked={true}
@@ -79,8 +86,8 @@ const AboutMe = () => {
             icon={<SiTypescript className="text-[#4272ba]" />}
           />
         </Card>
-        <span className="mt-3">{`Frontend techs`}</span>
-        <Card>
+        <span className="mt-3 text-code-comment">{`Frontend techs`}</span>
+        <Card className="bg-[#111a27]">
           <TextWithCheckbox
             text="React.js"
             checked={true}
@@ -104,7 +111,7 @@ const AboutMe = () => {
           <TextWithCheckbox
             text="Vite"
             checked={true}
-            icon={<SiVite className="text-[#9752ee]" />}
+            icon={<SiVite className="text-[#8d62ee]" />}
           />
           <TextWithCheckbox
             text="Radix-UI"
@@ -118,7 +125,7 @@ const AboutMe = () => {
           />
         </Card>{" "}
         <span className="mt-3">{`Backend techs`}</span>
-        <Card>
+        <Card className="bg-[#111a27]">
           <TextWithCheckbox
             text="Node.js"
             checked={true}

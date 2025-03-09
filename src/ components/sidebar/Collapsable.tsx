@@ -14,6 +14,7 @@ interface ICollapsableProps {
   indicator?: React.ReactNode;
   activeColor?: string;
   defaultColor?: string;
+  className?: string;
 }
 
 const Collapsable: React.FC<ICollapsableProps> = ({
@@ -28,6 +29,7 @@ const Collapsable: React.FC<ICollapsableProps> = ({
   mb = "",
   indicator,
   defaultColor = "text-code-comment",
+  className,
 }) => {
   const [isCollapsed, setIsCollapsed] = React.useState(
     initialState === "collapsed",
@@ -36,7 +38,7 @@ const Collapsable: React.FC<ICollapsableProps> = ({
   return (
     <div
       id={id ?? `${title}-collapsable`}
-      className={`flex h-full w-full flex-col ${bordered ? "bordered" : ""} ${ml} ${mr} ${mt} ${mb}`}
+      className={`flex h-full w-full flex-col ${bordered ? "bordered" : ""} ${ml} ${mr} ${mt} ${mb} ${className}`}
     >
       <div
         id="indicator"

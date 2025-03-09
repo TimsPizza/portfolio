@@ -21,7 +21,7 @@ const Sidebar = () => {
         <NavLink
           to="/landing"
           className={({ isActive }) =>
-            `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+            `${isActive ? "!text-code-variable" : ""} text-code-comment hover:text-code-variable`
           }
         >
           <VscFiles className="h-7 w-7 cursor-pointer transition-colors duration-200" />
@@ -29,7 +29,7 @@ const Sidebar = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+            `${isActive ? "!text-code-variable" : ""} text-code-comment hover:text-code-variable`
           }
         >
           <VscGitMerge className="h-7 w-7 cursor-pointer transition-colors duration-200" />
@@ -37,7 +37,7 @@ const Sidebar = () => {
         <NavLink
           to="/projects"
           className={({ isActive }) =>
-            `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+            `${isActive ? "!text-code-variable" : ""} text-code-comment hover:text-code-variable`
           }
         >
           <VscExtensions className="h-7 w-7 cursor-pointer transition-colors duration-200" />
@@ -46,7 +46,7 @@ const Sidebar = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+              `${isActive ? "!text-code-variable" : ""} text-code-comment hover:text-code-variable`
             }
           >
             <VscAccount className="h-7 w-7 cursor-pointer transition-colors duration-200" />
@@ -54,7 +54,7 @@ const Sidebar = () => {
           <NavLink
             to="/themes"
             className={({ isActive }) =>
-              `${isActive ? "!text-gray-200" : ""} text-code-comment hover:text-code-variable`
+              `${isActive ? "!text-code-variable" : ""} text-code-comment hover:text-code-variable`
             }
           >
             <VscSettingsGear className="h-7 w-7 cursor-pointer transition-colors duration-200" />
