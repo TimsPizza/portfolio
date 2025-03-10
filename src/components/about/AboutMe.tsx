@@ -26,7 +26,7 @@ import WithLineNumber from "./WithLineNumber";
 const AboutMe = () => {
   return (
     <div className="flex h-full w-full flex-row px-4">
-      <div id="about-left" className="w-3/5">
+      <div id="about-left" className="w-3/5 pr-3">
         <WithLineNumber leading="leading-7">
           <section className="leading-7 text-code-comment">
             <p className="font-bold">{`/* About Peisen Jiang`}</p>
@@ -40,13 +40,14 @@ const AboutMe = () => {
               {`• A mysterious oriental country :)`}
             </p>
             <p className="text-code-number">{`[What do I do]`}</p>
-            <p>{`• I make interactive & responsive web applications along with backend solutions`}</p>
+            <p>{`• I make interactive & responsive web applications along with backend solutions, also am learning mobile development with react native/flutter.`}</p>
             <p className="m-1 text-warning">{`[My hobbies]`}</p>
             <p>{`• [Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
+            <p className="font-bold">{`*/ End, for now :p`}</p>
           </section>
         </WithLineNumber>
       </div>
-      <div id="about-right" className="flex w-2/5 flex-col">
+      <div id="about-right" className="flex w-2/5 flex-col px-3">
         <span className="mt-3 text-code-comment">{`// Techs that I've been using or am learning`}</span>
         <span className="mt-3 text-code-comment">{`Programming Languages`}</span>
         <Card className="bg-[#111a27]">
@@ -86,7 +87,7 @@ const AboutMe = () => {
             icon={<SiTypescript className="text-[#4272ba]" />}
           />
         </Card>
-        <span className="mt-3 text-code-comment">{`Frontend techs`}</span>
+        <span className="mt-3 text-code-comment">{`Frontend`}</span>
         <Card className="bg-[#111a27]">
           <TextWithCheckbox
             text="React.js"
@@ -124,7 +125,7 @@ const AboutMe = () => {
             icon={<SiMui className="text-[#377df7]" />}
           />
         </Card>{" "}
-        <span className="mt-3">{`Backend techs`}</span>
+        <span className="mt-3 text-code-comment">{`Backend`}</span>
         <Card className="bg-[#111a27]">
           <TextWithCheckbox
             text="Node.js"

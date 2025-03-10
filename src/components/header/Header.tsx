@@ -13,7 +13,7 @@ const Header = () => {
       <div className="relative flex h-full flex-1 text-text-gray">
         <NavLink
           className={({ isActive }) =>
-            `${isActive ? "before:active-underline text-text-light" : ""} bordered relative flex min-w-28 cursor-pointer items-center justify-center p-3 transition-colors duration-200 hover:text-text-light`
+            `${isActive ? "before:active-underline text-text-light" : ""} bordered relative flex min-w-28 cursor-pointer items-center justify-center  transition-colors duration-200 hover:text-text-light`
           }
           to="/landing"
         >

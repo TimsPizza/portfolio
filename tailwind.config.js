@@ -35,6 +35,7 @@ module.exports = {
           string: "#FDA55E",
           comment: "#405870",
           number: "#FF6B6B",
+          tag: "#e48bc1",
         },
         success: "#47D764",
         error: "#FF355B",

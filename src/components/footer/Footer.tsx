@@ -19,10 +19,13 @@ const Footer = () => {
       </div>
       <div className="bordered flex-1"></div>
       <div className="bordered">
-        <div className="flex h-full cursor-pointer items-center justify-center px-2 text-code-variable transition-colors duration-100 hover:text-white">
+        <a
+          className="flex h-full cursor-pointer items-center justify-center px-2 text-code-variable transition-all duration-100 hover:brightness-125"
+          href="https://github.com/TimsPizza"
+        >
           <span className="mr-2">@timspizza</span>
           <FaGithub className="h-5 w-5 cursor-pointer" />
-        </div>
+        </a>
       </div>
     </div>
   );
