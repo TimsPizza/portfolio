@@ -7,13 +7,13 @@ const Header = () => {
       id="header-container"
       className="bordered flex h-full w-full flex-row items-center"
     >
-      <div className="bordered flex h-full w-1/5 items-center justify-start">
+      <div className="bordered flex h-full w-72 items-center justify-start">
         <a className="ml-2 text-code-variable">peisen-jiang</a>
       </div>
       <div className="relative flex h-full flex-1 text-text-gray">
         <NavLink
           className={({ isActive }) =>
-            `${isActive ? "before:active-underline text-text-light" : ""} bordered relative flex min-w-28 cursor-pointer items-center justify-center  transition-colors duration-200 hover:text-text-light`
+            `${isActive ? "before:active-underline text-text-light" : ""} bordered relative flex min-w-28 cursor-pointer items-center justify-center transition-colors duration-200 hover:text-text-light`
           }
           to="/landing"
         >

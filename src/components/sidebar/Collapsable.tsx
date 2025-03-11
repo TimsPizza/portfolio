@@ -42,7 +42,7 @@ const Collapsable: React.FC<ICollapsableProps> = ({
         id="indicator"
         className={`${
           bordered ? "bordered" : ""
-        } relative flex w-full cursor-pointer items-center p-1 text-${defaultColor} text-opacity-80 transition-colors duration-200 hover:text-opacity-100 ${isCollapsed ? "text-opacity-80" : "!text-opacity-100"}`}
+        } relative flex w-full cursor-pointer items-center p-1 text-${defaultColor} transition-colors duration-200 ${isCollapsed ? "" : "brightness-125"}`}
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
         {indicator ? (
@@ -56,7 +56,7 @@ const Collapsable: React.FC<ICollapsableProps> = ({
         )}
 
         <span
-          className={`ml-2 ${defaultColor === "text-code-comment" ? (isCollapsed ? "" : "text-white") : ""}`}
+          className={`ml-2 ${defaultColor === "text-code-comment" ? (isCollapsed ? "" : "text-gray-200") : ""}`}
         >
           {title}
         </span>

@@ -1,5 +1,8 @@
 import { FaCode, FaEnvelope, FaFolder, FaUniversity } from "react-icons/fa";
-import { MdOutlinePhone } from "react-icons/md";
+import { FaCakeCandles } from "react-icons/fa6";
+import { GiBowman, GiConsoleController } from "react-icons/gi";
+import { IoMdMale } from "react-icons/io";
+import { MdFactCheck, MdOutlinePhone } from "react-icons/md";
 import {
   VscAccount,
   VscExtensions,
@@ -7,16 +10,15 @@ import {
   VscGitMerge,
   VscSettingsGear,
 } from "react-icons/vsc";
-import Collapsable from "./Collapsable";
-import { GiBowman, GiConsoleController } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
+import Collapsable from "./Collapsable";
 
 const Sidebar = () => {
   return (
     <div id="sidebar-container" className="flex h-full w-full flex-row">
       <div
         id="sidebar-icons"
-        className="bordered flex h-full w-1/4 flex-col items-center gap-4 py-4"
+        className="bordered flex h-full w-14 flex-col items-center gap-4 py-4"
       >
         <NavLink
           to="/landing"
@@ -78,7 +80,24 @@ const Sidebar = () => {
               ml="ml-4"
               defaultColor="code-string"
               indicator={<FaFolder />}
-            />
+            >
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm text-code-comment transition-colors duration-100 hover:text-code-variable">
+                <FaCakeCandles className="inline-block h-4 w-4 flex-shrink-0" />
+                <span className="ml-2" title="my birthday">
+                  Sept 11, 2001
+                </span>
+              </div>
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm text-code-comment transition-colors duration-100 hover:text-code-variable">
+                <IoMdMale className="inline-block h-4 w-4 flex-shrink-0" />
+                <span className="ml-2">Male</span>
+              </div>
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm text-code-comment transition-colors duration-100 hover:text-code-variable">
+                <MdFactCheck className="inline-block h-4 w-4 flex-shrink-0" />
+                <span className="ml-2" title="my nickname">
+                  timspizza
+                </span>
+              </div>
+            </Collapsable>
             <Collapsable
               id="interests"
               title="interests"
@@ -86,16 +105,16 @@ const Sidebar = () => {
               indicator={<FaFolder />}
               defaultColor="code-keyword"
             >
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-code-comment transition-colors duration-100 hover:text-white">
-                <FaCode className="inline-block h-5 w-5 flex-shrink-0" />
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm text-code-comment transition-colors duration-100 hover:text-code-variable">
+                <FaCode className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">coding</span>
               </div>
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-code-comment transition-colors duration-100 hover:text-white">
-                <GiConsoleController className="inline-block h-5 w-5 flex-shrink-0" />
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm text-code-comment transition-colors duration-100 hover:text-code-variable">
+                <GiConsoleController className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">gaming</span>
               </div>
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-code-comment transition-colors duration-100 hover:text-white">
-                <GiBowman className="inline-block h-5 w-5 flex-shrink-0" />
+              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm text-code-comment transition-colors duration-100 hover:text-code-variable">
+                <GiBowman className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">archery</span>
               </div>
             </Collapsable>
@@ -106,8 +125,8 @@ const Sidebar = () => {
               indicator={<FaFolder />}
               defaultColor="code-number"
             >
-              <div className="mb-2 ml-2 flex flex-row items-center px-2">
-                <FaUniversity className="h-4 w-4" />
+              <div className="mb-2 ml-2 flex cursor-pointer flex-row items-center px-2 tracking-tight transition-colors duration-100 hover:text-code-variable">
+                <FaUniversity className="mt-1 h-4 w-4 self-start" />
                 <span className="ml-2 text-sm">University of Lethbridge</span>
               </div>
             </Collapsable>
@@ -120,11 +139,11 @@ const Sidebar = () => {
             bordered
             default="expanded"
           >
-            <div className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 text-code-variable transition-colors duration-100 hover:text-white">
-              <FaEnvelope className="inline-block h-5 w-5 flex-shrink-0" />
+            <div className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 text-code-variable transition-colors duration-100 hover:text-code-variable">
+              <FaEnvelope className="inline-block h-4 w-4 flex-shrink-0" />
               <span className="ml-2">peisen.jiang2001@gmail.com</span>
             </div>
-            <div className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 text-code-variable transition-colors duration-100 hover:text-white">
+            <div className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 text-code-variable transition-colors duration-100 hover:text-code-variable">
               <MdOutlinePhone className="h-4 w-4" />
               <span className="ml-2">1-403-929-7693</span>
             </div>

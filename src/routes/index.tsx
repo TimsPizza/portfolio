@@ -4,26 +4,45 @@ import Landing from "../components/landing/Landing";
 import Projects from "../components/projects/Projects";
 import AboutMe from "../components/about/AboutMe";
 import Contact from "../components/contact/Contact";
+import PageTransition from "../components/transitions/PageTransition";
+import React from "react";
+
+// returns a higher order component that wraps the given component with a page transition
+const withTransition = (Component: React.ComponentType): React.FC => {
+  const WithTransitionComponent: React.FC = () => (
+    <PageTransition>
+      <Component />
+    </PageTransition>
+  );
+  return React.memo(WithTransitionComponent);
+};
+
+const TransitionedLanding = withTransition(Landing);
+const TransitionedAbout = withTransition(AboutMe);
+const TransitionedProjects = withTransition(Projects);
+const TransitionedContact = withTransition(Contact);
+
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <Layout />,
     children: [
       {
+        index: true,
         path: "landing",
-        element: <Landing />,
+        element: <TransitionedLanding />,
       },
       {
         path: "about",
-        element: <AboutMe />,
+        element: <TransitionedAbout />,
       },
       {
         path: "projects",
-        element: <Projects />,
+        element: <TransitionedProjects />,
       },
       {
         path: "contact",
-        element: <Contact />,
+        element: <TransitionedContact />,
       },
     ],
   },
@@ -32,4 +51,5 @@ const routes: RouteObject[] = [
     element: <>404 Page</>,
   },
 ];
+
 export const router = createHashRouter(routes);

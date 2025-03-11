@@ -6,7 +6,7 @@ const Footer = () => {
       id="footer-container"
       className="bordered item-center flex h-full w-full flex-row"
     >
-      <div className="bordered flex w-1/5 items-center justify-center">
+      <div className="bordered flex w-72 items-center justify-center">
         <div className="flex h-full w-full flex-row items-center text-code-variable">
           <span className="ml-2 mr-2 px-2">find me on:</span>
           <span className="bordered flex h-full items-center justify-center px-2">

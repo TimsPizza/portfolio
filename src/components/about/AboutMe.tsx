@@ -22,11 +22,16 @@ import {
 import Card from "./Card";
 import TextWithCheckbox from "./TextWithCheckbox";
 import WithLineNumber from "./WithLineNumber";
+import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 
 const AboutMe = () => {
+  const { leftRef, rightRef } = useEntranceAnimation({
+    type: "about"
+  });
+
   return (
     <div className="flex h-full w-full flex-row px-4">
-      <div id="about-left" className="w-3/5 pr-3">
+      <div ref={leftRef} id="about-left" className="w-3/5 pr-3">
         <WithLineNumber leading="leading-7">
           <section className="leading-7 text-code-comment">
             <p className="font-bold">{`/* About Peisen Jiang`}</p>
@@ -47,7 +52,8 @@ const AboutMe = () => {
           </section>
         </WithLineNumber>
       </div>
-      <div id="about-right" className="flex w-2/5 flex-col px-3">
+
+      <div ref={rightRef} id="about-right" className="flex w-2/5 flex-col px-3">
         <span className="mt-3 text-code-comment">{`// Techs that I've been using or am learning`}</span>
         <span className="mt-3 text-code-comment">{`Programming Languages`}</span>
         <Card className="bg-[#111a27]">
@@ -124,7 +130,7 @@ const AboutMe = () => {
             checked={false}
             icon={<SiMui className="text-[#377df7]" />}
           />
-        </Card>{" "}
+        </Card>
         <span className="mt-3 text-code-comment">{`Backend`}</span>
         <Card className="bg-[#111a27]">
           <TextWithCheckbox
