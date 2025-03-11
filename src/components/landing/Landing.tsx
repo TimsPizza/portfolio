@@ -7,7 +7,7 @@ import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 
 const Landing = () => {
   const { introRef, descriptionRef, contactRef } = useEntranceAnimation({
-    type: "landing"
+    type: "landing",
   });
 
   return (
@@ -19,10 +19,13 @@ const Landing = () => {
       </div>
 
       <div className="relative z-20">
-        <div className="container mx-auto px-4 py-10">
+        <div className="container ml-4 py-10">
           {/* Introduction Section */}
-          <div ref={introRef} className="flex flex-col items-center justify-center">
-            <div className="flex w-full flex-col px-20">
+          <div
+            ref={introRef}
+            className="flex flex-col items-center justify-center"
+          >
+            <div className="mt-8 flex w-full flex-col px-20">
               <span className="ml-4 mr-auto mt-2 block text-2xl font-light text-gray-50">
                 Hi all, I am
               </span>
@@ -56,15 +59,18 @@ const Landing = () => {
           </div>
 
           {/* Description Section */}
-          <div ref={descriptionRef} className="mt-8 flex w-full flex-col gap-4 px-20">
+          <div
+            ref={descriptionRef}
+            className="mt-8 flex w-full flex-col gap-4 px-20"
+          >
             <div className="ml-4 mt-6 max-w-2xl text-center text-xl text-gray-300">
-              <p className="text-code-tag text-left">{"<developer>"}</p>
+              <p className="text-left text-code-tag">{"<developer>"}</p>
               <p className="text-left text-code-comment">
                 {
                   "Design, Draft, Develop, Debug, Deploy, Document, and Drink Coffee."
                 }
               </p>
-              <p className="text-code-tag text-left">{"</developer>"}</p>
+              <p className="text-left text-code-tag">{"</developer>"}</p>
             </div>
 
             <div className="ml-4 flex min-w-0 flex-wrap gap-2">
@@ -86,7 +92,10 @@ const Landing = () => {
           </div>
 
           {/* Contact Information Section */}
-          <div ref={contactRef} className="ml-4 mt-8 flex flex-col items-center justify-start tracking-wide">
+          <div
+            ref={contactRef}
+            className="ml-4 mt-8 flex flex-col items-center justify-start tracking-wide"
+          >
             <p className="block w-full px-20 tracking-normal text-code-comment">
               // my email
             </p>

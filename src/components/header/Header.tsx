@@ -8,7 +8,7 @@ const Header = () => {
       className="bordered flex h-full w-full flex-row items-center"
     >
       <div className="bordered flex h-full w-72 items-center justify-start">
-        <a className="ml-2 text-code-variable">peisen-jiang</a>
+        <a className="ml-3 inline-block text-code-variable">peisen-jiang</a>
       </div>
       <div className="relative flex h-full flex-1 text-text-gray">
         <NavLink
