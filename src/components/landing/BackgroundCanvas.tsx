@@ -9,31 +9,28 @@ const BackgroundCanvas: React.FC = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // 降低透明度到 0.05
     const colors = [
-      "rgba(30, 58, 138, 0.05)", // 深蓝
-      "rgba(37, 99, 235, 0.05)", // 蓝色
-      "rgba(59, 130, 246, 0.05)", // 亮蓝
-      "rgba(96, 165, 250, 0.05)", // 中蓝
-      "rgba(147, 197, 253, 0.05)", // 浅蓝
+      "rgba(30, 58, 138, 0.05)",
+      "rgba(37, 99, 235, 0.05)",
+      "rgba(59, 130, 246, 0.05)",
+      "rgba(96, 165, 250, 0.05)",
+      "rgba(147, 197, 253, 0.05)",
     ];
 
     const blobs: any[] = [];
 
-    // 减少气泡数量，减小气泡尺寸
     for (let i = 0; i < 6; i++) {
       blobs.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        r: Math.random() * 120 + 80, // 减小气泡尺寸
+        r: Math.random() * 120 + 80,
         color: colors[Math.floor(Math.random() * colors.length)],
-        dx: (Math.random() - 0.5) * 0.5, // 进一步减慢移动速度
+        dx: (Math.random() - 0.5) * 0.5,
         dy: (Math.random() - 0.5) * 0.5,
       });
     }
 
     const animate = () => {
-      // 使用更深的背景色来减少累积效果
       ctx.fillStyle = "rgba(17, 24, 39, 0.1)";
       ctx.fillRect(0, 0, width, height);
 
@@ -54,11 +51,9 @@ const BackgroundCanvas: React.FC = () => {
         ctx.arc(blob.x, blob.y, blob.r, 0, Math.PI * 2);
         ctx.fill();
 
-        // 更新位置
         blob.x += blob.dx;
         blob.y += blob.dy;
 
-        // 边界检查
         if (blob.x - blob.r < 0) {
           blob.dx = Math.abs(blob.dx) * 0.8;
         }
