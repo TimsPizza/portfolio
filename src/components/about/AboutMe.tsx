@@ -31,7 +31,7 @@ const AboutMe = () => {
 
   return (
     <div className="flex h-full w-full flex-row overflow-x-hidden px-4">
-      <div ref={leftRef} id="about-left" className="w-3/5 pr-3 pl-4">
+      <div ref={leftRef} id="about-left" className="w-3/5 pl-4 pr-3">
         <WithLineNumber leading="leading-7">
           <section className="leading-7 text-code-comment">
             <p className="font-bold">{`/* About Peisen Jiang`}</p>
@@ -45,7 +45,8 @@ const AboutMe = () => {
               {`• A mysterious oriental country :)`}
             </p>
             <p className="text-code-number">{`[What do I do]`}</p>
-            <p>{`• I make interactive & responsive web applications along with backend solutions, also am learning mobile development with react native/flutter.`}</p>
+            <p>{`• I make interactive & responsive web applications along with backend solutions, `}</p>
+            <p>{` also am learning mobile development with react native/flutter.`}</p>
             <p className="m-1 text-warning">{`[My hobbies]`}</p>
             <p>{`• [Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
             <p className="font-bold">{`*/ End, for now :p`}</p>
@@ -53,7 +54,7 @@ const AboutMe = () => {
         </WithLineNumber>
       </div>
 
-      <div ref={rightRef} id="about-right" className="flex w-2/5 flex-col pr-7">
+      <div ref={rightRef} id="about-right" className="flex w-2/5 flex-col pr-4">
         <span className="mt-3 text-code-comment">{`// Techs that I've been using or am learning`}</span>
         <span className="mt-3 text-code-comment">{`Programming Languages`}</span>
         <Card className="max-w-[32rem] bg-[#111a27]">
