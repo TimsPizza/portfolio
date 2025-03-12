@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Balancer from "react-wrap-balancer";
 import Typewriter from "typewriter-effect";
+import { AiOutlineEye, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import BackgroundCanvas from "./BackgroundCanvas";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
+import { useStats } from "../../hooks/useStats";
+import useToast from "../../hooks/useToast";
 
 const Landing = () => {
-  const { introRef, descriptionRef, contactRef } = useEntranceAnimation({
-    type: "landing",
+  const { introRef, descriptionRef, contactRef, statsRef } =
+    useEntranceAnimation({
+      type: "landing",
+    });
+
+  const toast = useToast({
+    autoClose: 3000,
   });
+  const { stats, loading, error, like } = useStats();
+  const [hasLiked, setHasLiked] = useState(false);
+
+  const handleLike = async () => {
+    if (!hasLiked) {
+      try {
+        await like();
+        setHasLiked(true);
+        toast.success("Thanks for liking my portfolio!");
+      } catch (error) {
+        toast.error("Seems like there is an error, ooops!");
+      }
+    } else {
+      toast.info("You have already liked this portfolio! Thanks again! :)");
+    }
+  };
 
   return (
     <div className="relative h-full w-full bg-gray-900">
@@ -19,7 +43,7 @@ const Landing = () => {
       </div>
 
       <div className="relative z-20">
-        <div className="container ml-4 py-10">
+        <div className="container ml-4 pt-10">
           {/* Introduction Section */}
           <div
             ref={introRef}
@@ -117,6 +141,8 @@ const Landing = () => {
               <a
                 className="text-code-string underline underline-offset-4 transition-all duration-200 hover:brightness-125"
                 href="https://github.com/TimsPizza"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 "https://github.com/TimsPizza"
               </a>
@@ -131,6 +157,8 @@ const Landing = () => {
               <a
                 className="text-code-string underline underline-offset-4 transition-all duration-200 hover:brightness-125"
                 href="https://www.linkedin.com/in/timspizza/"
+                target="_blank"
+                rel="noopener noreferrer"
                 title="timspizza is my nick name :)"
               >
                 "https://www.linkedin.com/in/timspizza/"
@@ -145,6 +173,37 @@ const Landing = () => {
               <span className="text-white">=</span>
               <span className="text-code-string">"comming soon..."</span>
             </p>
+
+            {/* Stats Section */}
+            <div ref={statsRef} className="mt-4 flex w-full flex-col px-20">
+              <div className="flex w-full flex-row items-center gap-8">
+                <div className="flex items-center gap-2 text-gray-400">
+                  <AiOutlineEye className="text-2xl" />
+                  <span className="text-sm text-gray-500">Visits:</span>
+                  <span>{stats.views}</span>
+                </div>
+                <button
+                  onClick={handleLike}
+                  className="flex items-center gap-2 text-code-tag brightness-125 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                  title={hasLiked ? "Thank you!" : "Like this portfolio"}
+                >
+                  {hasLiked ? (
+                    <AiFillHeart className="text-2xl" />
+                  ) : (
+                    <AiOutlineHeart className="text-2xl" />
+                  )}
+                  <span className="text-sm text-gray-500">Likes:</span>
+                  <span>{stats.likes}</span>
+                </button>
+              </div>
+              {error && (
+                <div className="w-full">
+                  <p className="mr-auto mt-2 inline-block text-center text-sm text-red-400">
+                    {error}
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

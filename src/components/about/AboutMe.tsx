@@ -40,7 +40,7 @@ const AboutMe = () => {
             <p className="text-info">{`[Where I from]`}</p>
             <p
               title="China :)"
-              className="select-none transition-colors duration-200 hover:text-gray-400"
+              className="select-none transition-all duration-300 hover:brightness-125"
             >
               {`• A mysterious oriental country :)`}
             </p>
@@ -103,7 +103,7 @@ const AboutMe = () => {
           />
           <TextWithCheckbox
             text="Next.js"
-            checked={false}
+            checked={true}
             icon={<SiNextdotjs className="text-[#f7f7f7]" />}
           />
           <TextWithCheckbox
@@ -123,7 +123,7 @@ const AboutMe = () => {
           />
           <TextWithCheckbox
             text="Radix-UI"
-            checked={true}
+            checked={false}
             icon={<SiRadixui className="text-[#6f60ee]" />}
           />
           <TextWithCheckbox

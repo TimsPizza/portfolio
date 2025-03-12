@@ -9,6 +9,7 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
   const introRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
 
@@ -17,7 +18,7 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
 
     if (config.type === "landing") {
       // 初始状态
-      gsap.set([introRef.current, descriptionRef.current, contactRef.current], {
+      gsap.set([introRef.current, descriptionRef.current, contactRef.current, statsRef.current], {
         opacity: 0,
         y: 20
       });
@@ -39,8 +40,13 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
           opacity: 1,
           y: 0,
           duration: 0.8
+        }, "-=0.4")
+        .to(statsRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8
         }, "-=0.4");
-    } 
+    }
     
     else if (config.type === "about") {
       // 初始状态
@@ -71,11 +77,12 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
     };
   }, [config.type]);
 
-  return { 
+  return {
     // Landing page refs
-    introRef, 
-    descriptionRef, 
+    introRef,
+    descriptionRef,
     contactRef,
+    statsRef,
     // About page refs
     leftRef,
     rightRef

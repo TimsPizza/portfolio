@@ -3,12 +3,13 @@ import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
 import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "../components/footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 const Layout = () => {
   const navigate = useNavigate();
   useEffect(() => {
     // Only navigate to landing if we're at the root path
-    if (window.location.hash === '#/') {
+    if (window.location.hash === "#/") {
       navigate("/landing");
     }
   }, []); // Run only once on mount
@@ -17,6 +18,7 @@ const Layout = () => {
       id="content"
       className="flex h-full w-full flex-col bg-background-dark text-text-light"
     >
+      <ToastContainer />
       <div id="top-wrapper" className="bordered h-[5%] w-full">
         <Header />
       </div>

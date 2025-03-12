@@ -10,10 +10,14 @@ const Footer = () => {
         <div className="flex h-full w-full flex-row items-center text-code-variable">
           <span className="ml-2 mr-2 px-2">find me on:</span>
           <span className="bordered flex h-full items-center justify-center px-2">
-            <FaLinkedin className="h-5 w-5 cursor-pointer transition-colors duration-100 hover:text-white" />
+            <a href="https://www.linkedin.com/in/timspizza/">
+              <FaLinkedin className="h-5 w-5 cursor-pointer transition-colors duration-100 hover:text-white" />
+            </a>
           </span>
           <span className="bordered flex h-full items-center justify-center px-2">
-            <FaInstagram className="h-5 w-5 cursor-pointer transition-colors duration-100 hover:text-white" />
+            <a href="https://www.instagram.com/timmspizza/">
+              <FaInstagram className="h-5 w-5 cursor-pointer transition-colors duration-100 hover:text-white" />
+            </a>
           </span>
         </div>
       </div>
