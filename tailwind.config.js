@@ -33,7 +33,7 @@ module.exports = {
           keyword: "#4C5ACC",
           variable: "#42D9AD",
           string: "#FDA55E",
-          comment: "#40576f",
+          comment: "#9ca7b5",
           number: "#FF6B6B",
           tag: "#e48bc1",
         },
