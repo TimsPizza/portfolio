@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 import useToast from "../../hooks/useToast";
 import { API_CONFIG } from "../../config/api";
+import Balancer from "react-wrap-balancer";
 
 interface FormState {
   name: string;
@@ -40,34 +41,89 @@ const Contact = () => {
     });
   };
 
+  const validateForm = (): boolean => {
+    if (!formData.name.trim()) {
+      toast.error("Please enter your name");
+      return false;
+    }
+    if (!formData.email.trim()) {
+      toast.error("Please enter your email");
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return false;
+    }
+    if (!formData.subject.trim()) {
+      toast.error("Please enter a subject");
+      return false;
+    }
+    if (!formData.message.trim()) {
+      toast.error("Please enter your message");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setFormStatus({ loading: true });
 
     try {
-      const response = await fetch(
-        `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.contact}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        },
-      );
+      let response: Response;
 
-      const data = await response.json();
+      try {
+        response = await fetch(
+          `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.contact}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...formData,
+              name: formData.name.trim(),
+              email: formData.email.trim(),
+              subject: formData.subject.trim(),
+              message: formData.message.trim(),
+            }),
+          },
+        );
+      } catch (networkError) {
+        toast.error(
+          "Unable to reach the server. Please check your connection and try again.",
+        );
+        console.error("Network error:", networkError);
+        return;
+      }
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        toast.error("Received invalid response from server");
+        console.error("Parse error:", parseError);
+        return;
+      }
 
       if (!response.ok) {
-        throw new Error(data.message || "Failed to send message");
+        toast.error(
+          data.message || "Failed to send message. Please try again later.",
+        );
+        return;
       }
 
       toast.success("Message sent successfully! I'll get back to you soon.");
       resetForm();
     } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Failed to send message",
-      );
+      toast.error("An unexpected error occurred. Please try again.");
+      console.error("Contact form error:", error);
     } finally {
       setFormStatus({ loading: false });
     }
@@ -83,6 +139,28 @@ const Contact = () => {
     }));
   };
 
+  const ContactItem = ({ label, value, href }: { label: string; value: string; href?: string }) => (
+    <div className="flex flex-wrap items-start gap-2">
+      <div className="flex items-center gap-2 whitespace-nowrap">
+        <span className="text-code-keyword">const</span>
+        <span className="text-code-variable">{label}</span>
+        <span className="text-white">=</span>
+      </div>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-code-string underline-offset-4 hover:brightness-125 hover:underline"
+        >
+          {`"${value}"`}
+        </a>
+      ) : (
+        <span className="text-code-string">{`"${value}"`}</span>
+      )}
+    </div>
+  );
+
   return (
     <div className="flex h-full w-full flex-row overflow-x-hidden px-4">
       {/* Left Section - Contact Information */}
@@ -95,61 +173,37 @@ const Contact = () => {
           <div className="space-y-4">
             <p className="text-code-comment">// Preferred contact method</p>
             <div className="rounded-lg bg-[#111a27] p-6">
-              <p className="flex items-center gap-2">
-                <span className="text-code-keyword">const</span>
-                <span className="text-code-variable">email</span>
-                <span className="text-white">=</span>
-                <a
-                  href="mailto:peisen.jiang2001@gmail.com"
-                  className="text-code-string hover:brightness-125"
-                >
-                  "peisen.jiang2001@gmail.com"
-                </a>
-              </p>
+              <ContactItem
+                label="email"
+                value="peisen.jiang2001@gmail.com"
+                href="mailto:peisen.jiang2001@gmail.com"
+              />
             </div>
           </div>
 
           <div className="space-y-4">
             <p className="text-code-comment">// Find me on</p>
-            <div className="space-y-4 rounded-lg bg-[#111a27] p-6">
-              <p className="flex items-center gap-2">
-                <span className="text-code-keyword">const</span>
-                <span className="text-code-variable">github</span>
-                <span className="text-white">=</span>
-                <a
-                  href="https://github.com/TimsPizza"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-code-string underline underline-offset-4 hover:brightness-125"
-                >
-                  "github.com/TimsPizza"
-                </a>
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="text-code-keyword">const</span>
-                <span className="text-code-variable">linkedin</span>
-                <span className="text-white">=</span>
-                <a
-                  href="https://www.linkedin.com/in/timspizza/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-code-string underline underline-offset-4 hover:brightness-125"
-                >
-                  "linkedin.com/in/timspizza"
-                </a>
-              </p>
+            <div className="flex flex-col space-y-4 rounded-lg bg-[#111a27] p-6">
+              <ContactItem
+                label="github"
+                value="github.com/TimsPizza"
+                href="https://github.com/TimsPizza"
+              />
+              <ContactItem
+                label="linkedin"
+                value="linkedin.com/in/timspizza"
+                href="https://www.linkedin.com/in/timspizza/"
+              />
             </div>
           </div>
 
           <div className="space-y-4">
             <p className="text-code-comment">// Available time (MST)</p>
             <div className="rounded-lg bg-[#111a27] p-6">
-              <p className="flex items-center gap-2">
-                <span className="text-code-keyword">const</span>
-                <span className="text-code-variable">availability</span>
-                <span className="text-white">=</span>
-                <span className="text-code-string">"9:00 AM - 5:00 PM"</span>
-              </p>
+              <ContactItem
+                label="availability"
+                value="9:00 AM - 5:00 PM"
+              />
             </div>
           </div>
         </div>
@@ -175,6 +229,7 @@ const Contact = () => {
                 className="mt-1 w-full rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
                 disabled={formStatus.loading}
                 placeholder="John Doe"
+                required
               />
             </div>
 
@@ -191,6 +246,7 @@ const Contact = () => {
                 className="mt-1 w-full rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
                 disabled={formStatus.loading}
                 placeholder="john@example.com"
+                required
               />
             </div>
 
@@ -207,6 +263,7 @@ const Contact = () => {
                 className="mt-1 w-full rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
                 disabled={formStatus.loading}
                 placeholder="Project Collaboration"
+                required
               />
             </div>
 
@@ -223,6 +280,7 @@ const Contact = () => {
                 className="mt-1 w-full resize-none rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
                 disabled={formStatus.loading}
                 placeholder="Tell me about your thoughts..."
+                required
               />
             </div>
 
