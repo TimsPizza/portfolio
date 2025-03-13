@@ -3,6 +3,7 @@ import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 import useToast from "../../hooks/useToast";
 import { API_CONFIG } from "../../config/api";
 import Balancer from "react-wrap-balancer";
+import { ContactItem } from "../landing/ContactItem";
 
 interface FormState {
   name: string;
@@ -139,39 +140,6 @@ const Contact = () => {
     }));
   };
 
-  const ContactItem = ({
-    label,
-    value,
-    href,
-  }: {
-    label: string;
-    value: string;
-    href?: string;
-  }) => (
-    <div className="flex flex-wrap items-start gap-2">
-      <div className="flex items-center gap-2 whitespace-nowrap">
-        <span style={{ color: "var(--theme-code-keyword)" }}>const</span>
-        <span style={{ color: "var(--theme-code-variable)" }}>{label}</span>
-        <span style={{ color: "var(--theme-text-light)" }}>=</span>
-      </div>
-      {href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline-offset-4 hover:underline hover:brightness-125"
-          style={{ color: "var(--theme-code-string)" }}
-        >
-          {`"${value}"`}
-        </a>
-      ) : (
-        <span
-          style={{ color: "var(--theme-code-string)" }}
-        >{`"${value}"`}</span>
-      )}
-    </div>
-  );
-
   const inputStyles = {
     backgroundColor: "var(--theme-background-dark)",
     borderColor: "var(--theme-text-gray)",
@@ -179,9 +147,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex h-full w-full flex-row overflow-x-hidden px-4">
+    <div className="flex h-full w-full flex-col overflow-x-hidden px-4 lg:flex-row">
       {/* Left Section - Contact Information */}
-      <div ref={leftRef} className="w-1/2 p-8">
+      <div ref={leftRef} className="p-8 lg:w-1/2">
         <div className="space-y-6">
           <span
             className="block"
@@ -234,12 +202,12 @@ const Contact = () => {
       </div>
 
       {/* Right Section - Contact Form */}
-      <div ref={rightRef} className="w-1/2 p-6">
+      <div ref={rightRef} className="p-8 lg:w-1/2">
         <span
-          className="mb-4 block text-xl font-light"
+          className="mb-4 block text-md font-light"
           style={{ color: "var(--theme-code-comment)" }}
         >
-          {`// Send me a message`}
+          {`Send me a message`}
         </span>
         <form onSubmit={handleSubmit} className="relative space-y-4">
           <div className="space-y-4 rounded-lg border p-4" style={inputStyles}>

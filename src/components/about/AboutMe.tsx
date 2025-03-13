@@ -30,8 +30,8 @@ const AboutMe = () => {
   });
 
   return (
-    <div className="flex h-full w-full flex-row overflow-x-hidden px-4">
-      <div ref={leftRef} id="about-left" className="w-3/5 pl-4 pr-3">
+    <div className="flex h-full w-full flex-col overflow-x-hidden px-4 lg:flex-row">
+      <div ref={leftRef} id="about-left" className="w-full lg:px-4 lg:w-3/5">
         <WithLineNumber leading="leading-7">
           <section
             className="leading-7"
@@ -55,23 +55,25 @@ const AboutMe = () => {
             <p>{`• I make interactive & responsive web applications  `}</p>
             <p>{` along with backend solutions also am learning `}</p>
             <p>{` mobile development with react native/flutter.`}</p>
-            <p
-              style={{ color: "var(--theme-code-tag)" }}
-            >{`[My hobbies]`}</p>
+            <p style={{ color: "var(--theme-code-tag)" }}>{`[My hobbies]`}</p>
             <p>{`• [Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
             <p className="font-bold">{`*/ End, for now :p`}</p>
           </section>
         </WithLineNumber>
       </div>
 
-      <div ref={rightRef} id="about-right" className="flex w-2/5 flex-col pr-4">
+      <div
+        ref={rightRef}
+        id="about-right"
+        className="flex w-full flex-col px-4 lg:w-2/5"
+      >
         <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
           {`// Techs that I've been using or am learning`}
         </span>
         <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
           {`Programming Languages`}
         </span>
-        <Card className="max-w-[32rem]">
+        <Card className="grid max-w-full grid-cols-1 gap-2 md:grid-cols-2 lg:max-w-[32rem]">
           <TextWithCheckbox
             text="C/C++"
             checked={true}
@@ -111,7 +113,7 @@ const AboutMe = () => {
         <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
           {`Frontend`}
         </span>
-        <Card className="max-w-[32rem]">
+        <Card className="grid max-w-full grid-cols-1 gap-2 md:grid-cols-2 lg:max-w-[32rem]">
           <TextWithCheckbox
             text="React.js"
             checked={true}
@@ -151,7 +153,7 @@ const AboutMe = () => {
         <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
           {`Backend`}
         </span>
-        <Card className="max-w-[32rem]">
+        <Card className="grid max-w-full grid-cols-1 gap-2 sm:grid-cols-2 lg:max-w-[32rem]">
           <TextWithCheckbox
             text="Node.js"
             checked={true}

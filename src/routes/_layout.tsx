@@ -1,15 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import { ToastContainer } from "react-toastify";
 
 const Layout = () => {
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
     navigate("/landing");
   }, []); // Run only once on mount
+
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [location]); // Close sidebar on route change
 
   return (
     <div
@@ -33,13 +40,14 @@ const Layout = () => {
       >
         <div
           id="sidebar-wrapper"
-          className="bordered h-full w-72 flex-shrink-0"
+          className="bordered hidden h-full w-72 flex-shrink-0 lg:block"
         >
           <Sidebar />
         </div>
+
         <div id="main-content-wrapper" className="h-full w-full flex-1">
           <div
-            className="h-full w-full overflow-auto"
+            className="h-full w-full overflow-auto md:overflow-y-hidden"
             style={{ backgroundColor: "var(--theme-background-dark)" }}
           >
             <Outlet />

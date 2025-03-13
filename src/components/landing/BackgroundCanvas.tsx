@@ -7,7 +7,7 @@ const BackgroundCanvas: React.FC = () => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d", { alpha: true })!;
     let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let height = (canvas.height = canvas.parentElement?.clientHeight || window.innerHeight);
 
     const colors = [
       "rgba(30, 58, 138, 0.05)",
@@ -75,12 +75,18 @@ const BackgroundCanvas: React.FC = () => {
 
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      height = canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
     };
+
+    const observer = new ResizeObserver(handleResize);
+    if (canvas.parentElement) {
+      observer.observe(canvas.parentElement);
+    }
 
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
+      observer.disconnect();
     };
   }, []);
 

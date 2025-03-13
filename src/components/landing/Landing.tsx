@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
-import { Link } from "react-router-dom";
 import Balancer from "react-wrap-balancer";
 import Typewriter from "typewriter-effect";
 import { AiOutlineEye, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -8,6 +7,7 @@ import BackgroundCanvas from "./BackgroundCanvas";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 import { useStats } from "../../hooks/useStats";
 import useToast from "../../hooks/useToast";
+import { ContactItem } from "./ContactItem";
 
 const Landing = () => {
   const { introRef, descriptionRef, contactRef, statsRef } =
@@ -26,7 +26,7 @@ const Landing = () => {
     const count = 200;
     const defaults = {
       origin: { y: 0.7 },
-      zIndex: 1000
+      zIndex: 1000,
     };
 
     function fire(particleRatio: number, opts: confetti.Options) {
@@ -87,29 +87,41 @@ const Landing = () => {
   };
 
   return (
-    <div className="relative h-full w-full" style={{ backgroundColor: 'var(--theme-background-dark)' }}>
-      <div className="absolute inset-0 h-full w-full">
-        <div className="h-full w-full opacity-30">
+    <div
+      className="relative min-h-full w-full overflow-x-hidden"
+      style={{ backgroundColor: "var(--theme-background-dark)" }}
+    >
+      <div className="absolute min-h-full w-full">
+        <div className="absolute h-full w-full opacity-30">
           <BackgroundCanvas />
         </div>
       </div>
 
-      <div className="relative z-20">
-        <div className="container ml-4 pt-10">
+      <div className="relative z-20 min-h-full">
+        <div className="container mx-auto px-4 py-10">
           {/* Introduction Section */}
           <div
             ref={introRef}
             className="flex flex-col items-center justify-center"
           >
-            <div className="mt-8 flex w-full flex-col px-20">
-              <span className="ml-4 mr-auto mt-2 block text-2xl font-light" style={{ color: 'var(--theme-text-light)' }}>
+            <div className="flex w-full flex-col px-4 lg:px-20">
+              <span
+                className="mr-auto mt-2 block text-xl font-light lg:text-2xl"
+                style={{ color: "var(--theme-text-light)" }}
+              >
                 Hi all, I am
               </span>
-              <span className="ml-4 mr-auto mt-2 block text-5xl font-light" style={{ color: 'var(--theme-text-light)' }}>
+              <span
+                className="mr-auto mt-2 block text-3xl font-light lg:text-5xl"
+                style={{ color: "var(--theme-text-light)" }}
+              >
                 Peisen Jiang,
               </span>
               <Balancer>
-                <span className="ml-4 mr-auto mt-2 block text-2xl font-light leading-8" style={{ color: 'var(--theme-code-keyword)' }}>
+                <span
+                  className="mr-auto mt-2 block text-xl font-light leading-8 lg:text-2xl"
+                  style={{ color: "var(--theme-code-keyword)" }}
+                >
                   <Typewriter
                     options={{
                       loop: true,
@@ -137,19 +149,32 @@ const Landing = () => {
           {/* Description Section */}
           <div
             ref={descriptionRef}
-            className="mt-8 flex w-full flex-col gap-4 px-20"
+            className="mt-4 flex w-full flex-col gap-4 px-4 lg:px-20"
           >
-            <div className="ml-4 mt-6 max-w-2xl text-center text-xl">
-              <p className="text-left" style={{ color: 'var(--theme-code-tag)' }}>{"<developer>"}</p>
-              <p className="text-left" style={{ color: 'var(--theme-code-comment)' }}>
+            <div className="mt-6 max-w-2xl text-center text-lg lg:text-xl">
+              <p
+                className="text-left"
+                style={{ color: "var(--theme-code-tag)" }}
+              >
+                {"<developer>"}
+              </p>
+              <p
+                className="text-left"
+                style={{ color: "var(--theme-code-comment)" }}
+              >
                 {
                   "Design, Draft, Develop, Debug, Deploy, Document, and Drink Coffee."
                 }
               </p>
-              <p className="text-left" style={{ color: 'var(--theme-code-tag)' }}>{"</developer>"}</p>
+              <p
+                className="text-left"
+                style={{ color: "var(--theme-code-tag)" }}
+              >
+                {"</developer>"}
+              </p>
             </div>
 
-            <div className="ml-4 flex min-w-0 flex-wrap gap-2">
+            <div className="flex min-w-0 flex-wrap gap-2">
               {[
                 "Web Dev",
                 "Mobile Dev",
@@ -159,8 +184,8 @@ const Landing = () => {
               ].map((skill) => (
                 <span
                   key={skill}
-                  style={{ borderColor: 'var(--theme-code-variable)' }}
-                  className="cursor-default rounded-full border px-4 py-2 transition-colors hover:opacity-80"
+                  style={{ borderColor: "var(--theme-code-variable)" }}
+                  className="cursor-default rounded-full border px-3 py-1 text-sm transition-colors hover:opacity-80 lg:px-4 lg:py-2 lg:text-base"
                 >
                   {skill}
                 </span>
@@ -171,90 +196,95 @@ const Landing = () => {
           {/* Contact Information Section */}
           <div
             ref={contactRef}
-            className="ml-4 mt-8 flex flex-col items-center justify-start tracking-wide"
+            className="mt-8 flex flex-col items-start justify-start overflow-hidden tracking-wide"
           >
-            <p className="block w-full px-20 tracking-normal" style={{ color: 'var(--theme-code-comment)' }}>
-              // my email
-            </p>
-            <p className="flex w-full flex-row items-center gap-4 px-20">
-              <span style={{ color: 'var(--theme-code-keyword)' }}>const</span>
-              <span style={{ color: 'var(--theme-code-variable)' }}>email</span>
-              <span style={{ color: 'var(--theme-text-light)' }}>=</span>
-              <span style={{ color: 'var(--theme-code-string)' }}>
-                "peisen.jiang2001@gmail.com"
-              </span>
-            </p>
-            <p className="block w-full px-20 tracking-normal" style={{ color: 'var(--theme-code-comment)' }}>
-              // my github
-            </p>
-            <p className="flex w-full flex-row items-center gap-4 px-20">
-              <span style={{ color: 'var(--theme-code-keyword)' }}>const</span>
-              <span style={{ color: 'var(--theme-code-variable)' }}>github</span>
-              <span style={{ color: 'var(--theme-text-light)' }}>=</span>
-              <a
-                className="underline underline-offset-4 transition-all duration-200 hover:brightness-125"
-                style={{ color: 'var(--theme-code-string)' }}
-                href="https://github.com/TimsPizza"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                "https://github.com/TimsPizza"
-              </a>
-            </p>
-            <p className="block w-full px-20 tracking-normal" style={{ color: 'var(--theme-code-comment)' }}>
-              // my linkedin
-            </p>
-            <p className="flex w-full flex-row items-center gap-4 px-20">
-              <span style={{ color: 'var(--theme-code-keyword)' }}>const</span>
-              <span style={{ color: 'var(--theme-code-variable)' }}>linkedin</span>
-              <span style={{ color: 'var(--theme-text-light)' }}>=</span>
-              <a
-                className="underline underline-offset-4 transition-all duration-200 hover:brightness-125"
-                style={{ color: 'var(--theme-code-string)' }}
-                href="https://www.linkedin.com/in/timspizza/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="timspizza is my nick name :)"
-              >
-                "https://www.linkedin.com/in/timspizza/"
-              </a>
-            </p>
-            <p className="block w-full px-20 tracking-normal" style={{ color: 'var(--theme-code-comment)' }}>
-              // my blog, comming soon!
-            </p>
-            <p className="flex w-full flex-row items-center gap-4 px-20">
-              <span style={{ color: 'var(--theme-code-keyword)' }}>const</span>
-              <span style={{ color: 'var(--theme-code-variable)' }}>blog</span>
-              <span style={{ color: 'var(--theme-text-light)' }}>=</span>
-              <span style={{ color: 'var(--theme-code-string)' }}>"comming soon..."</span>
-            </p>
+            <div className="w-full space-y-4 px-4 lg:px-20">
+              <div>
+                <p
+                  className="tracking-normal"
+                  style={{ color: "var(--theme-code-comment)" }}
+                >
+                  // my email
+                </p>
+                <ContactItem label="email" value="peisen.jiang2001@gmail.com" />
+              </div>
+
+              <div>
+                <p
+                  className="tracking-normal"
+                  style={{ color: "var(--theme-code-comment)" }}
+                >
+                  // my github
+                </p>
+                <ContactItem
+                  label="github"
+                  value="github.com/TimsPizza"
+                  href="https://github.com/TimsPizza"
+                />
+              </div>
+
+              <div>
+                <p
+                  className="tracking-normal"
+                  style={{ color: "var(--theme-code-comment)" }}
+                >
+                  // my linkedin
+                </p>
+                <ContactItem
+                  label="linkedin"
+                  value="linkedin.com/in/timspizza/"
+                  href="https://www.linkedin.com/in/timspizza/"
+                />
+              </div>
+
+              <div>
+                <p
+                  className="tracking-normal"
+                  style={{ color: "var(--theme-code-comment)" }}
+                >
+                  // my blog, comming soon!
+                </p>
+                <ContactItem label="blog" value="comming soon..." />
+              </div>
+            </div>
 
             {/* Stats Section */}
-            <div ref={statsRef} className="mt-4 flex w-full flex-col px-20">
+            <div
+              ref={statsRef}
+              className="mt-4 flex w-full flex-col px-4 lg:px-20"
+            >
               <div className="flex w-full flex-row items-center gap-8">
-                <div className="flex items-center gap-2" style={{ color: 'var(--theme-text-gray)' }}>
-                  <AiOutlineEye className="text-2xl" />
-                  <span className="text-sm">Visits:</span>
+                <div
+                  className="flex items-center gap-2"
+                  style={{ color: "var(--theme-text-gray)" }}
+                >
+                  <AiOutlineEye className="text-xl lg:text-2xl" />
+                  <span className="text-xs lg:text-sm">Visits:</span>
                   <span>{stats.views}</span>
                 </div>
                 <button
                   onClick={handleLike}
                   className="flex items-center gap-2 brightness-125 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
-                  style={{ color: 'var(--theme-code-tag)' }}
+                  style={{ color: "var(--theme-code-tag)" }}
                   title={hasLiked ? "Thank you!" : "Like this portfolio"}
                 >
                   {hasLiked ? (
-                    <AiFillHeart className="text-2xl" />
+                    <AiFillHeart className="text-xl lg:text-2xl" />
                   ) : (
-                    <AiOutlineHeart className="text-2xl" />
+                    <AiOutlineHeart className="text-xl lg:text-2xl" />
                   )}
-                  <span className="text-sm" style={{ color: 'var(--theme-text-gray)' }}>Likes:</span>
+                  <span
+                    className="text-xs lg:text-sm"
+                    style={{ color: "var(--theme-text-gray)" }}
+                  >
+                    Likes:
+                  </span>
                   <span>{loading ? "-" : stats.likes}</span>
                 </button>
               </div>
               {error && (
                 <div className="w-full">
-                  <p className="mr-auto mt-2 inline-block text-center text-sm text-red-400">
+                  <p className="mr-auto mt-2 inline-block text-center text-xs text-red-400 lg:text-sm">
                     {error}
                   </p>
                 </div>

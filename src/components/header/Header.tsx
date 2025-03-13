@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div
       id="header-container"
       className="bordered flex h-full w-full flex-row items-center"
     >
-      <div className="bordered flex h-full w-72 items-center justify-start">
+      <div className="bordered flex h-full items-center justify-start lg:w-72">
         <a 
           className="ml-3 inline-block"
           style={{ color: "var(--theme-code-variable)" }}
         >
           peisen-jiang
         </a>
+        <div className="ml-auto lg:hidden">
+          <MobileNav isOpen={isOpen} onToggle={() => setIsOpen(!isOpen)} />
+        </div>
       </div>
       <div 
-        className="relative flex h-full flex-1"
+        className="relative hidden h-full flex-1 lg:flex"
         style={{ color: "var(--theme-code-comment)" }}
       >
         <NavLink

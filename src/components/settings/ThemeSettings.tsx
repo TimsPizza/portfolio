@@ -40,14 +40,14 @@ const ThemeSettings = () => {
           <ul className="list-inside list-disc space-y-2">
             <li>
               Themes are automatically saved and restored when you reopen the
-              page
+              page.
             </li>
             <li>
-              You can switch themes at any time for the best viewing experience
+              You can switch themes at any time for the best viewing experience.
             </li>
             <li>
               All themes are carefully calibrated to ensure optimal contrast and
-              readability
+              readability!
             </li>
           </ul>
         </div>
