@@ -98,13 +98,13 @@ const Landing = () => {
       </div>
 
       <div className="relative z-20 min-h-full">
-        <div className="container mx-auto px-4 py-10">
+        <div className="w-full px-4 py-10 lg:px-8 xl:px-14 xl:py-8 2xl:px-24 2xl:py-16">
           {/* Introduction Section */}
           <div
             ref={introRef}
             className="flex flex-col items-center justify-center"
           >
-            <div className="flex w-full flex-col px-4 lg:px-20">
+            <div className="flex w-full flex-col">
               <span
                 className="mr-auto mt-2 block text-xl font-light lg:text-2xl"
                 style={{ color: "var(--theme-text-light)" }}
@@ -147,11 +147,8 @@ const Landing = () => {
           </div>
 
           {/* Description Section */}
-          <div
-            ref={descriptionRef}
-            className="mt-4 flex w-full flex-col gap-4 px-4 lg:px-20"
-          >
-            <div className="mt-6 max-w-2xl text-center text-lg lg:text-xl">
+          <div ref={descriptionRef} className="mt-4 flex w-full flex-col gap-4">
+            <div className="mt-6 text-center text-lg lg:text-xl">
               <p
                 className="text-left"
                 style={{ color: "var(--theme-code-tag)" }}
@@ -198,7 +195,7 @@ const Landing = () => {
             ref={contactRef}
             className="mt-8 flex flex-col items-start justify-start overflow-hidden tracking-wide"
           >
-            <div className="w-full space-y-4 px-4 lg:px-20">
+            <div className="w-full space-y-4">
               <div>
                 <p
                   className="tracking-normal"
@@ -249,10 +246,7 @@ const Landing = () => {
             </div>
 
             {/* Stats Section */}
-            <div
-              ref={statsRef}
-              className="mt-4 flex w-full flex-col px-4 lg:px-20"
-            >
+            <div ref={statsRef} className="mt-4 flex w-full flex-col">
               <div className="flex w-full flex-row items-center gap-8">
                 <div
                   className="flex items-center gap-2"

@@ -23,27 +23,33 @@ const Sidebar = () => {
         <NavLink
           to="/landing"
           style={({ isActive }) => ({
-            color: isActive ? 'var(--theme-code-variable)' : 'var(--theme-code-comment)',
+            color: isActive
+              ? "var(--theme-code-variable)"
+              : "var(--theme-code-comment)",
           })}
-          className="hover:text-[var(--theme-code-variable)] transition-colors duration-200"
+          className="transition-colors duration-200 hover:text-[var(--theme-code-variable)]"
         >
           <VscFiles className="h-7 w-7 cursor-pointer" />
         </NavLink>
         <NavLink
           to="/about"
           style={({ isActive }) => ({
-            color: isActive ? 'var(--theme-code-variable)' : 'var(--theme-code-comment)',
+            color: isActive
+              ? "var(--theme-code-variable)"
+              : "var(--theme-code-comment)",
           })}
-          className="hover:text-[var(--theme-code-variable)] transition-colors duration-200"
+          className="transition-colors duration-200 hover:text-[var(--theme-code-variable)]"
         >
           <VscGitMerge className="h-7 w-7 cursor-pointer" />
         </NavLink>
         <NavLink
           to="/projects"
           style={({ isActive }) => ({
-            color: isActive ? 'var(--theme-code-variable)' : 'var(--theme-code-comment)',
+            color: isActive
+              ? "var(--theme-code-variable)"
+              : "var(--theme-code-comment)",
           })}
-          className="hover:text-[var(--theme-code-variable)] transition-colors duration-200"
+          className="transition-colors duration-200 hover:text-[var(--theme-code-variable)]"
         >
           <VscExtensions className="h-7 w-7 cursor-pointer" />
         </NavLink>
@@ -51,18 +57,22 @@ const Sidebar = () => {
           <NavLink
             to="/contact"
             style={({ isActive }) => ({
-              color: isActive ? 'var(--theme-code-variable)' : 'var(--theme-code-comment)',
+              color: isActive
+                ? "var(--theme-code-variable)"
+                : "var(--theme-code-comment)",
             })}
-            className="hover:text-[var(--theme-code-variable)] transition-colors duration-200"
+            className="transition-colors duration-200 hover:text-[var(--theme-code-variable)]"
           >
             <VscAccount className="h-7 w-7 cursor-pointer" />
           </NavLink>
           <NavLink
             to="/themes"
             style={({ isActive }) => ({
-              color: isActive ? 'var(--theme-code-variable)' : 'var(--theme-code-comment)',
+              color: isActive
+                ? "var(--theme-code-variable)"
+                : "var(--theme-code-comment)",
             })}
-            className="hover:text-[var(--theme-code-variable)] transition-colors duration-200"
+            className="transition-colors duration-200 hover:text-[var(--theme-code-variable)]"
           >
             <VscSettingsGear className="h-7 w-7 cursor-pointer" />
           </NavLink>
@@ -71,7 +81,7 @@ const Sidebar = () => {
       <div
         id="sidebar-content"
         className="flex h-full flex-1 flex-col"
-        style={{ color: 'var(--theme-code-comment)' }}
+        style={{ color: "var(--theme-code-comment)" }}
       >
         <div>
           <Collapsable
@@ -87,20 +97,17 @@ const Sidebar = () => {
               defaultColor="var(--theme-code-string)"
               indicator={<FaFolder />}
             >
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm hover:text-[var(--theme-code-variable)] transition-colors duration-100" 
-                   style={{ color: 'var(--theme-code-comment)' }}>
+              <div className="my-1 ml-1 flex flex-row items-center px-2 text-sm transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <FaCakeCandles className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2" title="my birthday">
                   Sept 11, 2001
                 </span>
               </div>
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                   style={{ color: 'var(--theme-code-comment)' }}>
+              <div className="my-1 ml-1 flex flex-row items-center px-2 text-sm transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <IoMdMale className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">Male</span>
               </div>
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                   style={{ color: 'var(--theme-code-comment)' }}>
+              <div className="my-1 ml-1 flex flex-row items-center px-2 text-sm transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <MdFactCheck className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2" title="my nickname">
                   timspizza
@@ -114,18 +121,15 @@ const Sidebar = () => {
               indicator={<FaFolder />}
               defaultColor="var(--theme-code-keyword)"
             >
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                   style={{ color: 'var(--theme-code-comment)' }}>
+              <div className="my-1 ml-1 flex flex-row items-center px-2 text-sm transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <FaCode className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">coding</span>
               </div>
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                   style={{ color: 'var(--theme-code-comment)' }}>
+              <div className="my-1 ml-1 flex flex-row items-center px-2 text-sm transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <GiConsoleController className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">gaming</span>
               </div>
-              <div className="my-1 ml-1 flex cursor-pointer flex-row items-center px-2 text-sm hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                   style={{ color: 'var(--theme-code-comment)' }}>
+              <div className="my-1 ml-1 flex flex-row items-center px-2 text-sm transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <GiBowman className="inline-block h-4 w-4 flex-shrink-0" />
                 <span className="ml-2">archery</span>
               </div>
@@ -137,7 +141,7 @@ const Sidebar = () => {
               indicator={<FaFolder />}
               defaultColor="var(--theme-code-number)"
             >
-              <div className="mb-2 ml-2 flex cursor-pointer flex-row items-center px-2 tracking-tight hover:text-[var(--theme-code-variable)] transition-colors duration-100">
+              <div className="mb-2 ml-2 flex flex-row items-center px-2 tracking-tight transition-colors duration-100 hover:text-[var(--theme-code-variable)]">
                 <FaUniversity className="mt-1 h-4 w-4 self-start" />
                 <span className="ml-2 text-sm">University of Lethbridge</span>
               </div>
@@ -151,13 +155,17 @@ const Sidebar = () => {
             bordered
             default="expanded"
           >
-            <div className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                 style={{ color: 'var(--theme-code-variable)' }}>
+            <div
+              className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 transition-colors duration-100 hover:text-[var(--theme-code-variable)] hover:brightness-125"
+              style={{ color: "var(--theme-code-variable)" }}
+            >
               <FaEnvelope className="inline-block h-4 w-4 flex-shrink-0" />
               <span className="ml-2">peisen.jiang2001@gmail.com</span>
             </div>
-            <div className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 hover:text-[var(--theme-code-variable)] transition-colors duration-100"
-                 style={{ color: 'var(--theme-code-variable)' }}>
+            <div
+              className="my-1 -ml-4 flex scale-75 cursor-pointer flex-row items-center px-2 transition-colors duration-100 hover:text-[var(--theme-code-variable)] hover:brightness-125"
+              style={{ color: "var(--theme-code-variable)" }}
+            >
               <MdOutlinePhone className="h-4 w-4" />
               <span className="ml-2">1-403-929-7693</span>
             </div>
