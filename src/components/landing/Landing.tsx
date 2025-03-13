@@ -285,7 +285,7 @@ const Landing = () => {
               {error && (
                 <div className="w-full">
                   <p className="mr-auto mt-2 inline-block text-center text-xs text-red-400 lg:text-sm">
-                    {error}
+                    {`Failed to update views and likes, maybe try again later?`}
                   </p>
                 </div>
               )}
