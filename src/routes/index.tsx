@@ -4,6 +4,7 @@ import Landing from "../components/landing/Landing";
 import Projects from "../components/projects/Projects";
 import AboutMe from "../components/about/AboutMe";
 import Contact from "../components/contact/Contact";
+import ThemeSettings from "../components/settings/ThemeSettings";
 import PageTransition from "../components/transitions/PageTransition";
 import React from "react";
 
@@ -21,6 +22,7 @@ const TransitionedLanding = withTransition(Landing);
 const TransitionedAbout = withTransition(AboutMe);
 const TransitionedProjects = withTransition(Projects);
 const TransitionedContact = withTransition(Contact);
+const TransitionedThemeSettings = withTransition(ThemeSettings);
 
 const routes: RouteObject[] = [
   {
@@ -44,6 +46,10 @@ const routes: RouteObject[] = [
         path: "contact",
         element: <TransitionedContact />,
       },
+      {
+        path: "themes",
+        element: <TransitionedThemeSettings />,
+      }
     ],
   },
   {

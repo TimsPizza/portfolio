@@ -33,21 +33,31 @@ const AboutMe = () => {
     <div className="flex h-full w-full flex-row overflow-x-hidden px-4">
       <div ref={leftRef} id="about-left" className="w-3/5 pl-4 pr-3">
         <WithLineNumber leading="leading-7">
-          <section className="leading-7 text-code-comment">
+          <section
+            className="leading-7"
+            style={{ color: "var(--theme-code-comment)" }}
+          >
             <p className="font-bold">{`/* About Peisen Jiang`}</p>
-            <p className="text-success">{`[Who am I]`}</p>
+            <p style={{ color: "var(--theme-code-keyword)" }}>{`[Who am I]`}</p>
             <p>{`• An aspiring and ambitious web developer & hardware enthusiast.`}</p>
-            <p className="text-info">{`[Where I from]`}</p>
+            <p
+              style={{ color: "var(--theme-code-string)" }}
+            >{`[Where I from]`}</p>
             <p
               title="China :)"
               className="select-none transition-all duration-300 hover:brightness-125"
             >
               {`• A mysterious oriental country :)`}
             </p>
-            <p className="text-code-number">{`[What do I do]`}</p>
-            <p>{`• I make interactive & responsive web applications along with backend solutions, `}</p>
-            <p>{` also am learning mobile development with react native/flutter.`}</p>
-            <p className="m-1 text-warning">{`[My hobbies]`}</p>
+            <p
+              style={{ color: "var(--theme-code-number)" }}
+            >{`[What do I do]`}</p>
+            <p>{`• I make interactive & responsive web applications  `}</p>
+            <p>{` along with backend solutions also am learning `}</p>
+            <p>{` mobile development with react native/flutter.`}</p>
+            <p
+              style={{ color: "var(--theme-code-tag)" }}
+            >{`[My hobbies]`}</p>
             <p>{`• [Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
             <p className="font-bold">{`*/ End, for now :p`}</p>
           </section>
@@ -55,9 +65,13 @@ const AboutMe = () => {
       </div>
 
       <div ref={rightRef} id="about-right" className="flex w-2/5 flex-col pr-4">
-        <span className="mt-3 text-code-comment">{`// Techs that I've been using or am learning`}</span>
-        <span className="mt-3 text-code-comment">{`Programming Languages`}</span>
-        <Card className="max-w-[32rem] bg-[#111a27]">
+        <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
+          {`// Techs that I've been using or am learning`}
+        </span>
+        <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
+          {`Programming Languages`}
+        </span>
+        <Card className="max-w-[32rem]">
           <TextWithCheckbox
             text="C/C++"
             checked={true}
@@ -94,8 +108,10 @@ const AboutMe = () => {
             icon={<SiTypescript className="text-[#4272ba]" />}
           />
         </Card>
-        <span className="mt-3 text-code-comment">{`Frontend`}</span>
-        <Card className="max-w-[32rem] bg-[#111a27]">
+        <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
+          {`Frontend`}
+        </span>
+        <Card className="max-w-[32rem]">
           <TextWithCheckbox
             text="React.js"
             checked={true}
@@ -132,8 +148,10 @@ const AboutMe = () => {
             icon={<SiMui className="text-[#377df7]" />}
           />
         </Card>
-        <span className="mt-3 text-code-comment">{`Backend`}</span>
-        <Card className="max-w-[32rem] bg-[#111a27]">
+        <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
+          {`Backend`}
+        </span>
+        <Card className="max-w-[32rem]">
           <TextWithCheckbox
             text="Node.js"
             checked={true}

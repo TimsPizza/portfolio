@@ -1,11 +1,15 @@
-import React, { createContext, useContext, useMemo } from "react";
+import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
 import "./styles/tailwind.output.css";
-
+import ThemeProvider from "./contexts/ThemeContext";
 
 const App = () => {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 };
 
 export default App;

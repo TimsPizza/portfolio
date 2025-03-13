@@ -139,40 +139,62 @@ const Contact = () => {
     }));
   };
 
-  const ContactItem = ({ label, value, href }: { label: string; value: string; href?: string }) => (
+  const ContactItem = ({
+    label,
+    value,
+    href,
+  }: {
+    label: string;
+    value: string;
+    href?: string;
+  }) => (
     <div className="flex flex-wrap items-start gap-2">
       <div className="flex items-center gap-2 whitespace-nowrap">
-        <span className="text-code-keyword">const</span>
-        <span className="text-code-variable">{label}</span>
-        <span className="text-white">=</span>
+        <span style={{ color: "var(--theme-code-keyword)" }}>const</span>
+        <span style={{ color: "var(--theme-code-variable)" }}>{label}</span>
+        <span style={{ color: "var(--theme-text-light)" }}>=</span>
       </div>
       {href ? (
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-code-string underline-offset-4 hover:brightness-125 hover:underline"
+          className="underline-offset-4 hover:underline hover:brightness-125"
+          style={{ color: "var(--theme-code-string)" }}
         >
           {`"${value}"`}
         </a>
       ) : (
-        <span className="text-code-string">{`"${value}"`}</span>
+        <span
+          style={{ color: "var(--theme-code-string)" }}
+        >{`"${value}"`}</span>
       )}
     </div>
   );
+
+  const inputStyles = {
+    backgroundColor: "var(--theme-background-dark)",
+    borderColor: "var(--theme-text-gray)",
+    color: "var(--theme-text-light)",
+  };
 
   return (
     <div className="flex h-full w-full flex-row overflow-x-hidden px-4">
       {/* Left Section - Contact Information */}
       <div ref={leftRef} className="w-1/2 p-8">
         <div className="space-y-6">
-          <span className="block text-code-comment">
+          <span
+            className="block"
+            style={{ color: "var(--theme-code-comment)" }}
+          >
             {`/* Contact Information */`}
           </span>
 
           <div className="space-y-4">
-            <p className="text-code-comment">// Preferred contact method</p>
-            <div className="rounded-lg bg-[#111a27] p-6">
+            <p style={{ color: "var(--theme-code-comment)" }}>
+              // Preferred contact method
+            </p>
+            <div className="rounded-lg border p-6" style={inputStyles}>
               <ContactItem
                 label="email"
                 value="peisen.jiang2001@gmail.com"
@@ -182,8 +204,11 @@ const Contact = () => {
           </div>
 
           <div className="space-y-4">
-            <p className="text-code-comment">// Find me on</p>
-            <div className="flex flex-col space-y-4 rounded-lg bg-[#111a27] p-6">
+            <p style={{ color: "var(--theme-code-comment)" }}>// Find me on</p>
+            <div
+              className="flex flex-col space-y-4 rounded-lg border p-6"
+              style={inputStyles}
+            >
               <ContactItem
                 label="github"
                 value="github.com/TimsPizza"
@@ -198,12 +223,11 @@ const Contact = () => {
           </div>
 
           <div className="space-y-4">
-            <p className="text-code-comment">// Available time (MST)</p>
-            <div className="rounded-lg bg-[#111a27] p-6">
-              <ContactItem
-                label="availability"
-                value="9:00 AM - 5:00 PM"
-              />
+            <p style={{ color: "var(--theme-code-comment)" }}>
+              // Available time (MST)
+            </p>
+            <div className="rounded-lg border p-6" style={inputStyles}>
+              <ContactItem label="availability" value="9:00 AM - 5:00 PM" />
             </div>
           </div>
         </div>
@@ -211,13 +235,20 @@ const Contact = () => {
 
       {/* Right Section - Contact Form */}
       <div ref={rightRef} className="w-1/2 p-6">
-        <span className="mb-4 block text-xl font-light text-code-comment">
+        <span
+          className="mb-4 block text-xl font-light"
+          style={{ color: "var(--theme-code-comment)" }}
+        >
           {`// Send me a message`}
         </span>
         <form onSubmit={handleSubmit} className="relative space-y-4">
-          <div className="space-y-4 rounded-lg bg-[#111a27] p-4">
+          <div className="space-y-4 rounded-lg border p-4" style={inputStyles}>
             <div>
-              <label htmlFor="name" className="block text-gray-200">
+              <label
+                htmlFor="name"
+                className="block"
+                style={{ color: "var(--theme-text-light)" }}
+              >
                 Your name
               </label>
               <input
@@ -226,7 +257,8 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 w-full rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
+                className="mt-1 w-full rounded border px-3 py-2 outline-none transition-all focus:border-[var(--theme-code-variable)] disabled:opacity-50"
+                style={inputStyles}
                 disabled={formStatus.loading}
                 placeholder="John Doe"
                 required
@@ -234,7 +266,11 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-gray-200">
+              <label
+                htmlFor="email"
+                className="block"
+                style={{ color: "var(--theme-text-light)" }}
+              >
                 Your email
               </label>
               <input
@@ -243,7 +279,8 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 w-full rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
+                className="mt-1 w-full rounded border px-3 py-2 outline-none transition-all focus:border-[var(--theme-code-variable)] disabled:opacity-50"
+                style={inputStyles}
                 disabled={formStatus.loading}
                 placeholder="john@example.com"
                 required
@@ -251,7 +288,11 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-gray-200">
+              <label
+                htmlFor="subject"
+                className="block"
+                style={{ color: "var(--theme-text-light)" }}
+              >
                 Subject
               </label>
               <input
@@ -260,7 +301,8 @@ const Contact = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="mt-1 w-full rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
+                className="mt-1 w-full rounded border px-3 py-2 outline-none transition-all focus:border-[var(--theme-code-variable)] disabled:opacity-50"
+                style={inputStyles}
                 disabled={formStatus.loading}
                 placeholder="Project Collaboration"
                 required
@@ -268,7 +310,11 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-gray-200">
+              <label
+                htmlFor="message"
+                className="block"
+                style={{ color: "var(--theme-text-light)" }}
+              >
                 Your message
               </label>
               <textarea
@@ -277,7 +323,8 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="mt-1 w-full resize-none rounded bg-gray-800/50 px-3 py-2 text-gray-100 outline-none ring-1 ring-gray-700 transition-all focus:ring-blue-500/50 disabled:opacity-50"
+                className="mt-1 w-full resize-none rounded border px-3 py-2 outline-none transition-all focus:border-[var(--theme-code-variable)] disabled:opacity-50"
+                style={inputStyles}
                 disabled={formStatus.loading}
                 placeholder="Tell me about your thoughts..."
                 required
@@ -287,11 +334,20 @@ const Contact = () => {
             <button
               type="submit"
               disabled={formStatus.loading}
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-md bg-blue-600/20 px-4 py-2 text-blue-300 transition-all hover:bg-blue-600/30 hover:brightness-125 disabled:cursor-not-allowed disabled:opacity-50"
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 transition-all hover:brightness-125 disabled:cursor-not-allowed disabled:opacity-50"
+              style={{
+                backgroundColor: "var(--theme-background-dark)",
+                color: "var(--theme-code-variable)",
+                borderColor: "var(--theme-code-variable)",
+                borderWidth: 1,
+              }}
             >
               {formStatus.loading ? (
                 <>
-                  <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-300 border-t-transparent"></span>
+                  <span
+                    className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"
+                    style={{ borderColor: "var(--theme-code-variable)" }}
+                  ></span>
                   Sending...
                 </>
               ) : (

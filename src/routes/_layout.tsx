@@ -10,26 +10,46 @@ const Layout = () => {
   useEffect(() => {
     navigate("/landing");
   }, []); // Run only once on mount
+
   return (
     <div
       id="content"
-      className="flex h-full w-full flex-col bg-background-dark text-text-light"
+      className="flex h-screen max-h-screen min-h-screen flex-col overflow-hidden"
+      style={{
+        backgroundColor: "var(--theme-background-dark)",
+        color: "var(--theme-text-light)",
+      }}
     >
       <ToastContainer />
-      <div id="top-wrapper" className="bordered h-[5%] w-full">
+      <div
+        id="top-wrapper"
+        className="bordered h-[5%] min-h-[40px] w-full flex-shrink-0"
+      >
         <Header />
       </div>
-      <div id="middle-wrapper" className="flex w-full flex-1 flex-row">
-        <div id="sidebar-wrapper" className="bordered w-72">
+      <div
+        id="middle-wrapper"
+        className="flex h-[90%] w-full flex-shrink-0 flex-row"
+      >
+        <div
+          id="sidebar-wrapper"
+          className="bordered h-full w-72 flex-shrink-0"
+        >
           <Sidebar />
         </div>
-        <div id="main-content-wrapper" className="w-full flex-1">
-          <div className="h-full min-h-0 w-full bg-[#071321]">
+        <div id="main-content-wrapper" className="h-full w-full flex-1">
+          <div
+            className="h-full w-full overflow-auto"
+            style={{ backgroundColor: "var(--theme-background-dark)" }}
+          >
             <Outlet />
           </div>
         </div>
       </div>
-      <div id="bottom-wrapper" className="bordered h-[5%] w-full">
+      <div
+        id="bottom-wrapper"
+        className="bordered h-[5%] min-h-[40px] w-full flex-shrink-0"
+      >
         <Footer />
       </div>
     </div>
