@@ -8,10 +8,7 @@ import { ToastContainer } from "react-toastify";
 const Layout = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    // Only navigate to landing if we're at the root path
-    if (window.location.hash === "#/") {
-      navigate("/landing");
-    }
+    navigate("/landing");
   }, []); // Run only once on mount
   return (
     <div

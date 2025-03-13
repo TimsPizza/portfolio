@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import confetti from "canvas-confetti";
 import { Link } from "react-router-dom";
 import Balancer from "react-wrap-balancer";
 import Typewriter from "typewriter-effect";
@@ -20,13 +21,64 @@ const Landing = () => {
   const { stats, loading, error, like } = useStats();
   const [hasLiked, setHasLiked] = useState(false);
 
+  // Trigger confetti effect function
+  const triggerConfetti = () => {
+    const count = 200;
+    const defaults = {
+      origin: { y: 0.7 },
+      zIndex: 1000
+    };
+
+    function fire(particleRatio: number, opts: confetti.Options) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+
+    fire(0.2, {
+      spread: 60,
+    });
+
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  };
+
   const handleLike = async () => {
     if (!hasLiked) {
       try {
         await like();
-        setHasLiked(true);
-        toast.success("Thanks for liking my portfolio!");
+        if (error) {
+          setHasLiked(false);
+          toast.error("Seems like there is an error, ooops!");
+        } else {
+          setHasLiked(true);
+          toast.success("Thanks for liking my portfolio!");
+          triggerConfetti();
+        }
       } catch (error) {
+        setHasLiked(false);
         toast.error("Seems like there is an error, ooops!");
       }
     } else {
@@ -193,7 +245,7 @@ const Landing = () => {
                     <AiOutlineHeart className="text-2xl" />
                   )}
                   <span className="text-sm text-gray-500">Likes:</span>
-                  <span>{stats.likes}</span>
+                  <span>{loading ? "-" : stats.likes}</span>
                 </button>
               </div>
               {error && (

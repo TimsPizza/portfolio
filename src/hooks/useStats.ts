@@ -35,13 +35,14 @@ export function useStats(): UseStatsResult {
           body: JSON.stringify({ type }),
         },
       );
-
+      
       const data: ApiResponse<StatsResponse> = await response.json();
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || "Failed to update stats");
       }
 
+      setError(null);
       setStats(data.data);
       return data;
     } catch (error) {

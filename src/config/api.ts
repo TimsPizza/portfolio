@@ -1,5 +1,5 @@
 export const API_CONFIG = {
-  baseUrl: "http://localhost:8889",
+  baseUrl: "https://me.kixstar.xyz/api",
   endpoints: {
     contact: "/contact/message",
     stats: {

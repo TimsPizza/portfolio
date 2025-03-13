@@ -784,10 +784,6 @@ video {
   width: 100%;
 }
 
-.w-auto {
-  width: auto;
-}
-
 .min-w-0 {
   min-width: 0px;
 }
@@ -955,10 +951,6 @@ video {
 
 .whitespace-nowrap {
   white-space: nowrap;
-}
-
-.\!text-wrap {
-  text-wrap: wrap !important;
 }
 
 .rounded {
