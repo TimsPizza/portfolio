@@ -21,7 +21,7 @@ const Layout = () => {
   return (
     <div
       id="content"
-      className="flex h-screen max-h-screen min-h-screen flex-col overflow-hidden"
+      className="flex h-screen max-h-screen min-h-screen flex-col overflow-hidden w-screen"
       style={{
         backgroundColor: "var(--theme-background-dark)",
         color: "var(--theme-text-light)",

@@ -554,52 +554,6 @@ video {
   display: none;
 }
 
-.container {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .container {
-    max-width: 1920px;
-  }
-}
-
-@media (min-width: 2560px) {
-  .container {
-    max-width: 2560px;
-  }
-}
-
 .bordered {
   position: relative;
 }
@@ -833,8 +787,8 @@ video {
   width: 100%;
 }
 
-.w-\[65\%\] {
-  width: 65%;
+.w-screen {
+  width: 100vw;
 }
 
 .min-w-0 {
@@ -851,10 +805,6 @@ video {
 
 .min-w-\[30px\] {
   min-width: 30px;
-}
-
-.max-w-2xl {
-  max-width: 42rem;
 }
 
 .max-w-4xl {
@@ -1183,11 +1133,6 @@ video {
   padding-bottom: 1rem;
 }
 
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1208,8 +1153,20 @@ video {
   text-align: right;
 }
 
+.font-firaCode {
+  font-family: Fira Code, serif;
+}
+
+.font-inter {
+  font-family: Inter, sans-serif;
+}
+
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-raleway {
+  font-family: Raleway, sans-serif;
 }
 
 .text-2xl {
@@ -1257,6 +1214,10 @@ video {
 
 .font-medium {
   font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .leading-10 {
@@ -1658,24 +1619,19 @@ video {
     flex-direction: row;
   }
 
-  .lg\:px-20 {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-
   .lg\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  .lg\:py-2 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .lg\:text-2xl {
@@ -1705,11 +1661,6 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:px-16 {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-
   .xl\:px-14 {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
@@ -1719,18 +1670,9 @@ video {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-
-  .xl\:pt-8 {
-    padding-top: 2rem;
-  }
 }
 
 @media (min-width: 1536px) {
-  .\32xl\:px-32 {
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
-
   .\32xl\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
@@ -1739,9 +1681,5 @@ video {
   .\32xl\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
-  }
-
-  .\32xl\:pt-16 {
-    padding-top: 4rem;
   }
 }
