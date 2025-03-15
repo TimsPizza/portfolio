@@ -1,6 +1,7 @@
 # Personal Portfolio Website
 
 A modern, interactive portfolio website built with React and TypeScript, featuring dynamic animations, theme customization, and responsive design.
+
 Live view: https://me.kixstar.xyz/
 
 ## 🌟 Key Features
