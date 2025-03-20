@@ -239,9 +239,9 @@ const Landing = () => {
                   className="tracking-normal"
                   style={{ color: "var(--theme-code-comment)" }}
                 >
-                  // my blog, comming soon!
+                  // my blog, coming soon!
                 </p>
-                <ContactItem label="blog" value="comming soon..." />
+                <ContactItem label="blog" value="coming soon..." />
               </div>
             </div>
 

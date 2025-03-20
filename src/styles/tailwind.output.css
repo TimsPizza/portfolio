@@ -683,6 +683,10 @@ video {
   margin-top: auto;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1153,20 +1157,8 @@ video {
   text-align: right;
 }
 
-.font-firaCode {
-  font-family: Fira Code, serif;
-}
-
-.font-inter {
-  font-family: Inter, sans-serif;
-}
-
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-.font-raleway {
-  font-family: Raleway, sans-serif;
 }
 
 .text-2xl {
@@ -1214,10 +1206,6 @@ video {
 
 .font-medium {
   font-weight: 500;
-}
-
-.font-semibold {
-  font-weight: 600;
 }
 
 .leading-10 {
