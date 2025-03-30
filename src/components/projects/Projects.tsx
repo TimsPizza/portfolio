@@ -14,14 +14,14 @@ const projects: Project[] = [
     title: "Network traffic analyzer",
     description:
       "A full-stack web application for analyzing network traffic and providing statistics.",
-    githubUrl: "https://github.com/yourusername/project2",
+    githubUrl: "https://github.com/TimsPizza/traffic-monitor-with-webui/tree/dev",
   },
   {
     title: "Blog",
     imageUrl: "/images/blog.jpg",
     description:
       "A blog website to share my writing and thoughts on various topics.",
-    githubUrl: "https://github.com/yourusername/newproject",
+    githubUrl: "https://github.com/TimsPizza/blog",
     demoUrl: "https://blog.kixstar.xyz",
   },
   {
@@ -29,7 +29,7 @@ const projects: Project[] = [
     imageUrl: "/images/pix2sheet.jpg",
     description:
       "A web application that converts user-uploaded tabular images into excel sheets powered by LLM.",
-    githubUrl: "https://github.com/yourusername/newproject2",
+    githubUrl: "https://github.com/TimsPizza/Pix2Sheet",
     demoUrl: "https://i2e.kixstar.xyz",
   },
 ];
