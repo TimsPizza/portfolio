@@ -12,7 +12,7 @@ import { ContactItem } from "./ContactItem";
 const Landing = () => {
   const { introRef, descriptionRef, contactRef, statsRef } =
     useEntranceAnimation({
-      type: "landing",
+      type: "tb",
     });
 
   const toast = useToast({

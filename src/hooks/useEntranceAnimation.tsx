@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface AnimationConfig {
-  type: "landing" | "about";
+  type: "tb" | "lr";
 }
 
 export const useEntranceAnimation = (config: AnimationConfig) => {
@@ -16,12 +16,20 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
   useEffect(() => {
     const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    if (config.type === "landing") {
+    if (config.type === "tb") {
       // 初始状态
-      gsap.set([introRef.current, descriptionRef.current, contactRef.current, statsRef.current], {
-        opacity: 0,
-        y: 20
-      });
+      gsap.set(
+        [
+          introRef.current,
+          descriptionRef.current,
+          contactRef.current,
+          statsRef.current,
+        ],
+        {
+          opacity: 0,
+          y: 20,
+        },
+      );
 
       // Landing 页面的顺序动画
       timeline
@@ -29,26 +37,36 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          delay: 0.2
+          delay: 0.2,
         })
-        .to(descriptionRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8
-        }, "-=0.4")
-        .to(contactRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8
-        }, "-=0.4")
-        .to(statsRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8
-        }, "-=0.4");
-    }
-    
-    else if (config.type === "about") {
+        .to(
+          descriptionRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+          },
+          "-=0.4",
+        )
+        .to(
+          contactRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+          },
+          "-=0.4",
+        )
+        .to(
+          statsRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+          },
+          "-=0.4",
+        );
+    } else if (config.type === "lr") {
       // 初始状态
       gsap.set([leftRef.current, rightRef.current], {
         opacity: 0,
@@ -63,13 +81,17 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
           opacity: 1,
           x: 0,
           duration: 0.8,
-          delay: 0.2
+          delay: 0.2,
         })
-        .to(rightRef.current, {
-          opacity: 1,
-          x: 0,
-          duration: 0.8
-        }, "-=0.6"); // 稍微重叠动画以创造连贯效果
+        .to(
+          rightRef.current,
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+          },
+          "-=0.6",
+        ); // 稍微重叠动画以创造连贯效果
     }
 
     return () => {
@@ -85,6 +107,6 @@ export const useEntranceAnimation = (config: AnimationConfig) => {
     statsRef,
     // About page refs
     leftRef,
-    rightRef
+    rightRef,
   };
 };

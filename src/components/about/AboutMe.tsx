@@ -26,7 +26,7 @@ import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 
 const AboutMe = () => {
   const { leftRef, rightRef } = useEntranceAnimation({
-    type: "about",
+    type: "lr",
   });
 
   return (

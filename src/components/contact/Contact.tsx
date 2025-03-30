@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import { API_CONFIG } from "../../config/api";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 import useToast from "../../hooks/useToast";
-import { API_CONFIG } from "../../config/api";
-import Balancer from "react-wrap-balancer";
 import { ContactItem } from "../landing/ContactItem";
 
 interface FormState {
@@ -18,7 +17,7 @@ interface FormStatus {
 
 const Contact = () => {
   const { leftRef, rightRef } = useEntranceAnimation({
-    type: "about",
+    type: "lr",
   });
   const toast = useToast();
 

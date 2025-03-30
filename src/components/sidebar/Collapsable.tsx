@@ -70,7 +70,7 @@ const Collapsable: React.FC<ICollapsableProps> = ({
       {children && (
         <div
           id="collapsable"
-          className={`grid transition-[grid-template-rows] duration-200 ease-in-out ${
+          className={`grid transition-[grid-template-rows] duration-200 ease-in-out cursor-default ${
             isCollapsed ? "grid-rows-[0fr]" : "grid-rows-[1fr]"
           }`}
         >
