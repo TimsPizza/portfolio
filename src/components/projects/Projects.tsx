@@ -14,7 +14,8 @@ const projects: Project[] = [
     title: "Network traffic analyzer",
     description:
       "A full-stack web application for analyzing network traffic and providing statistics.",
-    githubUrl: "https://github.com/TimsPizza/traffic-monitor-with-webui/tree/dev",
+    githubUrl:
+      "https://github.com/TimsPizza/traffic-monitor-with-webui/tree/dev",
   },
   {
     title: "Blog",
@@ -31,6 +32,23 @@ const projects: Project[] = [
       "A web application that converts user-uploaded tabular images into excel sheets powered by LLM.",
     githubUrl: "https://github.com/TimsPizza/Pix2Sheet",
     demoUrl: "https://i2e.kixstar.xyz",
+  },
+  {
+    title: "Life Daemon",
+    imageUrl: "/images/lifedaemon.jpg",
+    description:
+      "Tired of every-the-same-day? Add some spice to your life with an interesting daily email *just for you!* Powered by LLM.",
+    githubUrl: "https://github.com/TimsPizza/life-daemon",
+    demoUrl:
+      "https://life-daemon.kixstar.xyz/",
+  },
+  {
+    title: "Not-Bot",
+    imageUrl: "/images/notbot.jpg",
+    description:
+      "A discord chat bot with LLM capabilities and auto-decision algorithm. It talks spicy and sharply...",
+    demoUrl:
+      "https://discord.com/oauth2/authorize?client_id=1362169484072321104",
   },
 ];
 
