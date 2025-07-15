@@ -6,7 +6,6 @@ import {
   SiFastapi,
   SiJavascript,
   SiMongodb,
-  SiMui,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
@@ -31,7 +30,7 @@ const AboutMe = () => {
 
   return (
     <div className="flex h-full w-full flex-col overflow-x-hidden px-4 lg:flex-row">
-      <div ref={leftRef} id="about-left" className="w-full lg:px-4 lg:w-3/5">
+      <div ref={leftRef} id="about-left" className="w-full lg:w-3/5 lg:px-4">
         <WithLineNumber leading="leading-7">
           <section
             className="leading-7"
@@ -56,7 +55,7 @@ const AboutMe = () => {
             <p>{` along with backend solutions also am learning `}</p>
             <p>{` mobile development with react native/flutter.`}</p>
             <p style={{ color: "var(--theme-code-tag)" }}>{`[My hobbies]`}</p>
-            <p>{`• [Coding, Archery, Hiking, Gaming, Anime :3]`}</p>
+            <p>{`• [Coding, Archery, Hiking, Gaming, Anime <3]`}</p>
             <p className="font-bold">{`*/ End, for now :p`}</p>
           </section>
         </WithLineNumber>
@@ -96,7 +95,7 @@ const AboutMe = () => {
           />
           <TextWithCheckbox
             text="Rust"
-            checked={false}
+            checked={true}
             icon={<SiRust className="text-[#dd5627]" />}
           />
           <TextWithCheckbox
@@ -141,13 +140,8 @@ const AboutMe = () => {
           />
           <TextWithCheckbox
             text="Radix-UI"
-            checked={false}
+            checked={true}
             icon={<SiRadixui className="text-[#6f60ee]" />}
-          />
-          <TextWithCheckbox
-            text="Material-UI"
-            checked={false}
-            icon={<SiMui className="text-[#377df7]" />}
           />
         </Card>
         <span style={{ color: "var(--theme-code-comment)" }} className="mt-3">
@@ -171,12 +165,12 @@ const AboutMe = () => {
           />
           <TextWithCheckbox
             text="PostgreSQL"
-            checked={false}
+            checked={true}
             icon={<SiPostgresql className="text-[#3e6389]" />}
           />
           <TextWithCheckbox
             text="Redis"
-            checked={false}
+            checked={true}
             icon={<SiRedis className="text-[#c13b2c]" />}
           />
         </Card>

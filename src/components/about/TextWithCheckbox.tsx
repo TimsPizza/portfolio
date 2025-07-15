@@ -6,7 +6,7 @@ const TextWithCheckbox: React.FC<{
   icon: React.ReactNode;
 }> = ({ text, checked, icon }) => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row items-center">
       <span
         className={`relative inline-block h-5 min-h-5 w-5 min-w-5 cursor-pointer select-none rounded border border-code-comment before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:content-[''] ${checked ? "before:block" : "before:hidden"} before:h-2 before:w-3 before:-rotate-45 before:border-b-2 before:border-l-2 before:border-blue-500`}
       ></span>

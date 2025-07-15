@@ -22,6 +22,27 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
+    id: "night-owl",
+    name: "Night Owl",
+    colors: {
+      background: {
+        dark: "#011627",
+      },
+      text: {
+        light: "#D6DEEB",
+        gray: "#637777",
+      },
+      code: {
+        keyword: "#C792EA",
+        variable: "#7FDBCA",
+        string: "#ECC48D",
+        comment: "#637777",
+        number: "#F78C6C",
+        tag: "#7FDBCA",
+      },
+    },
+  },
+  {
     id: "dracula",
     name: "Dracula",
     colors: {
@@ -145,27 +166,6 @@ export const themes: Theme[] = [
         comment: "#545454",
         number: "#F78C6C",
         tag: "#89DDFF",
-      },
-    },
-  },
-  {
-    id: "night-owl",
-    name: "Night Owl",
-    colors: {
-      background: {
-        dark: "#011627",
-      },
-      text: {
-        light: "#D6DEEB",
-        gray: "#637777",
-      },
-      code: {
-        keyword: "#C792EA",
-        variable: "#7FDBCA",
-        string: "#ECC48D",
-        comment: "#637777",
-        number: "#F78C6C",
-        tag: "#7FDBCA",
       },
     },
   },
