@@ -131,7 +131,6 @@ export function useAnalytics(): void {
         const res = await ping<InitResponse>("init", initBody);
         const ids = res.data || {};
         if (aborted) return;
-        console.log("init response", res);
         // backend may only return deviceId if already known
         const next: Ids = {
           deviceId: (ids.deviceId as string) || getStoredDeviceId() || "",
@@ -184,7 +183,6 @@ export function useAnalytics(): void {
       toPath: clampString(toPath, 2048),
       ts: Date.now(),
     };
-    console.log("constructed body", body);
     ping("hop_to", body).catch(() => {});
   }, [location.pathname]);
 
@@ -201,7 +199,6 @@ export function useAnalytics(): void {
   //       ua: clampString(navigator.userAgent, 2048),
   //       ts: Date.now(),
   //     };
-  //     console.log("constructed end body", body);
   //     try {
   //       ping("end", body).catch(() => {});
   //     } catch (err) {}

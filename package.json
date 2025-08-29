@@ -1,7 +1,7 @@
 {
-  "name": "online-quiz-interface",
+  "name": "portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "start": "concurrently \"yarn dev\" \"yarn start:tailwind\"",
