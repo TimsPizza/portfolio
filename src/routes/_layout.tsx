@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import Footer from "../components/footer/Footer";
-import { ToastContainer } from "react-toastify";
+import { useAnalytics } from "../hooks/useAnalytics";
 
 const Layout = () => {
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+  useAnalytics();
 
   useEffect(() => {
     navigate("/landing");
@@ -21,7 +23,7 @@ const Layout = () => {
   return (
     <div
       id="content"
-      className="flex h-screen max-h-screen min-h-screen flex-col overflow-hidden w-screen"
+      className="flex h-screen max-h-screen min-h-screen w-screen flex-col overflow-hidden"
       style={{
         backgroundColor: "var(--theme-background-dark)",
         color: "var(--theme-text-light)",

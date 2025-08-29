@@ -6,6 +6,9 @@ export const API_CONFIG = {
       get: "/stats",
       update: "/stats",
     },
+    analytics: {
+      ping: "/analytics/ping",
+    },
   },
 } as const;
 
