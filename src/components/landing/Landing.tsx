@@ -1,12 +1,12 @@
-import React, { useState } from "react";
 import confetti from "canvas-confetti";
+import { useState } from "react";
+import { AiFillHeart, AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import Balancer from "react-wrap-balancer";
 import Typewriter from "typewriter-effect";
-import { AiOutlineEye, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import BackgroundCanvas from "./BackgroundCanvas";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation";
 import { useStats } from "../../hooks/useStats";
 import useToast from "../../hooks/useToast";
+import BackgroundCanvas from "./BackgroundCanvas";
 import { ContactItem } from "./ContactItem";
 
 const Landing = () => {
@@ -66,23 +66,20 @@ const Landing = () => {
   };
 
   const handleLike = async () => {
-    if (!hasLiked) {
-      try {
-        await like();
-        if (error) {
-          setHasLiked(false);
-          toast.error("Seems like there is an error, ooops!");
-        } else {
-          setHasLiked(true);
-          toast.success("Thanks for liking my portfolio!");
-          triggerConfetti();
-        }
-      } catch (error) {
-        setHasLiked(false);
-        toast.error("Seems like there is an error, ooops!");
-      }
+    if (hasLiked) {
+      triggerConfetti();
+      return;
     } else {
-      toast.info("You have already liked this portfolio! Thanks again! :)");
+      await like();
+      setHasLiked(true);
+      triggerConfetti();
+      toast.success("Something new just appeared... did you notice?");
+      try {
+        localStorage.setItem("shadowUnlocked", "true");
+        window.dispatchEvent(new Event("shadow:unlocked"));
+      } catch (_) {
+        // ignore storage errors
+      }
     }
   };
 

@@ -185,34 +185,4 @@ export function useAnalytics(): void {
     };
     ping("hop_to", body).catch(() => {});
   }, [location.pathname]);
-
-  // graceful end
-  // temporary disabled, use heartbeat only for now
-
-  // useEffect(() => {
-  //   const handler = () => {
-  //     const s = sessionRef.current;
-  //     if (!s) return;
-  //     const body: CommonBody = {
-  //       deviceId: s.deviceId,
-  //       sessionId: s.sessionId,
-  //       ua: clampString(navigator.userAgent, 2048),
-  //       ts: Date.now(),
-  //     };
-  //     try {
-  //       ping("end", body).catch(() => {});
-  //     } catch (err) {}
-  //   };
-
-  //   const onVisibility = () => {
-  //     if (document.visibilityState === "hidden") handler();
-  //   };
-  //   document.addEventListener("visibilitychange", onVisibility);
-  //   window.addEventListener("pagehide", handler);
-
-  //   return () => {
-  //     document.removeEventListener("visibilitychange", onVisibility);
-  //     window.removeEventListener("pagehide", handler);
-  //   };
-  // }, []);
 }
