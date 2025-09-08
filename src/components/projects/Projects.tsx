@@ -11,6 +11,14 @@ const projects: Project[] = [
     demoUrl: "https://me.kixstar.xyz",
   },
   {
+    title: "SwiftPan",
+    imageUrl: "/images/swiftpan.png",
+    description:
+      "A cross-platform light, fast s3-storage-based cloud drive app. Free! Privacy! Open-source! (I love you cloudflare)",
+    githubUrl: "https://github.com/TimsPizza/SwiftPan",
+    demoUrl: "https://github.com/TimsPizza/SwiftPan",
+  },
+  {
     title: "FlowExcel",
     imageUrl: "/images/flowexcel.png",
     description:
@@ -30,7 +38,7 @@ const projects: Project[] = [
     title: "Pix2Sheet",
     imageUrl: "/images/pix2sheet.jpg",
     description:
-      'A web application that converts user-uploaded tabular images into excel sheets powered by LLM. (\"Very useful", my mom said.)',
+      'A web application that converts user-uploaded tabular images into excel sheets powered by LLM. ("Very useful", my mom said.)',
     githubUrl: "https://github.com/TimsPizza/Pix2Sheet",
     demoUrl: "https://i2e.kixstar.xyz",
   },

@@ -77,7 +77,7 @@ const Landing = () => {
       try {
         localStorage.setItem("shadowUnlocked", "true");
         window.dispatchEvent(new Event("shadow:unlocked"));
-      } catch (_) {
+      } catch {
         // ignore storage errors
       }
     }
